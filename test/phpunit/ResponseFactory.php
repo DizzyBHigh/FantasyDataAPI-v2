@@ -131,6 +131,11 @@ class ResponseFactory
                 $response = new PlayerGameProjectionStatsByTeam\Response\Mock( $request );
                 break;
 
+            case 'PlayerGameProjectionStatsByPlayerID':
+                $response = new PlayerGameProjectionStatsByPlayerID\Response\Mock( $request );
+                break;
+
+
             case 'PlayerGameStatsByPlayerID':
                 $response = new PlayerGameStatsByPlayerID\Response\Mock( $request );
                 break;

@@ -870,7 +870,6 @@ $resources['operations']['PlayerGameProjectionStatsByTeam'] = [
     'uri' => 'PlayerGameProjectionStatsByTeam{/Season}{/Week}{/Team}',
     'responseModel' => 'JSON_Resource',
     'parameters' => [
-        'Subscription' => [ 'type' => 'string', 'location' => 'uri' ],
         'Format' => [ 'type' => 'string', 'location' => 'uri', 'default' => 'json' ],
         'key' => [ 'type' => 'string', 'location' => 'query' ],
         'Season' => [
@@ -892,6 +891,37 @@ $resources['operations']['PlayerGameProjectionStatsByTeam'] = [
 ];
 
 /**
+ * Action: Get Players Game Projection Stats by Player for Season for Week and PlayerID
+ * Resource: PlayerGameStatsByPlayerID
+ *
+ * http://api.nfldata.apiphany.com/nfl/v2/{format}/PlayerGameProjectionStatsByPlayerID/{season}/{week}/{playerid}
+ */
+$resources['operations']['PlayerGameProjectionStatsByPlayerID'] = [
+    'httpMethod' => 'GET',
+    'uri' => 'PlayerGameProjectionStatsByPlayerID{/Season}{/Week}{/PlayerID}',
+    'responseModel' => 'JSON_Resource',
+    'parameters' => [
+        'Format' => [ 'type' => 'string', 'location' => 'uri', 'default' => 'json' ],
+        'Season' => [
+            'required' => true,
+            'type' => 'string',
+            'location' => 'uri'
+        ],
+        'Week' => [
+            'required' => true,
+            'type' => 'string',
+            'location' => 'uri'
+        ],
+        'PlayerID' => [
+            'required' => true,
+            'type' => 'string',
+            'location' => 'uri'
+        ]
+    ]
+];
+
+
+/**
  * Action: Get Projected Players Game Stats by Season and Week
  * Resource: PlayerGameProjectionStatsByWeek
  *
@@ -902,7 +932,6 @@ $resources['operations']['PlayerGameProjectionStatsByWeek'] = [
     'uri' => 'PlayerGameProjectionStatsByWeek{/Season}{/Week}',
     'responseModel' => 'JSON_Resource',
     'parameters' => [
-        'Subscription' => [ 'type' => 'string', 'location' => 'uri' ],
         'Format' => [ 'type' => 'string', 'location' => 'uri', 'default' => 'json' ],
         'key' => [ 'type' => 'string', 'location' => 'query' ],
         'Season' => [
@@ -917,6 +946,8 @@ $resources['operations']['PlayerGameProjectionStatsByWeek'] = [
         ],
     ]
 ];
+
+
 
 /**
  * Action: Gets Fantasy Players with ADP
