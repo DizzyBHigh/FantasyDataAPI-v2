@@ -39,6 +39,8 @@ use GuzzleHttp\Command;
  * @method Command\Model GameLeagueLeadersByWeek() GameLeagueLeadersByWeek( array $pOptions )
  * @method Command\Model FantasyDefenseByGame() FantasyDefenseByGame( array $pOptions )
  * @method Command\Model FantasyDefenseBySeason() FantasyDefenseBySeason( array $pOptions )
+ * @method Command\Model FantasyDefenseProjectionsByGame() FantasyDefenseProjectionsByGame( array $pOptions )
+ * @method Command\Model FantasyDefenseProjectionsBySeason() FantasyDefenseProjectionsBySeason( array $pOptions )
  * @method Command\Model Injuries() Injuries( array $pOptions )
  * @method Command\Model News() News( array $pOptions )
  * @method Command\Model NewsByPlayerID() NewsByPlayerID( array $pOptions )
@@ -69,7 +71,6 @@ use GuzzleHttp\Command;
  *
  * @method Command\Model FantasyPlayersByADP() FantasyPlayersByADP( array $pOptions )
  * @method Command\Model DailyFantasyPlayers() DailyFantasyPlayers( array $pOptions )
- * @method Command\Model FantasyDefenseProjectionsByGame() FantasyDefenseProjectionsByGame( array $pOptions )
  */
 
 class Client extends GuzzleClient

@@ -464,6 +464,51 @@ $resources['operations']['FantasyDefenseBySeason'] = [
 ];
 
 /**
+ * Action: Get Projected Fantasy Defense Stats By Season and Week
+ * Resource: FantasyDefenseProjectionsByGame
+ *
+ * http://api.nfldata.apiphany.com/nfl/v2/{subscription}/{format}/FantasyDefenseProjectionsByGame/{season}/{week}
+ */
+$resources['operations']['FantasyDefenseProjectionsByGame'] = [
+    'httpMethod' => 'GET',
+    'uri' => 'FantasyDefenseProjectionsByGame{/Season}{/Week}',
+    'responseModel' => 'JSON_Resource',
+    'parameters' => [
+        'Format' => [ 'type' => 'string', 'location' => 'uri', 'default' => 'json' ],
+        'Season' => [
+            'required' => true,
+            'type' => 'string',
+            'location' => 'uri'
+        ],
+        'Week' => [
+            'required' => true,
+            'type' => 'string',
+            'location' => 'uri'
+        ]
+    ]
+];
+
+/**
+ * Action: Get Fantasy Defense Projections By Season
+ * Resource: FantasyDefenseProjectionsBySeason
+ *
+ * http://api.nfldata.apiphany.com/nfl/v2{format}/FantasyDefenseProjectionsBySeason/{season}
+ */
+$resources['operations']['FantasyDefenseProjectionsBySeason'] = [
+    'httpMethod' => 'GET',
+    'uri' => 'FantasyDefenseProjectionsBySeason{/Season}',
+    'responseModel' => 'JSON_Resource',
+    'parameters' => [
+        'Format' => [ 'type' => 'string', 'location' => 'uri', 'default' => 'json' ],
+        'Season' => [
+            'required' => true,
+            'type' => 'string',
+            'location' => 'uri'
+        ]
+    ]
+];
+
+/**
  * Action: Get Injuries for Season for Week
  * Resource: InjuriesByWeek
  *
@@ -1085,30 +1130,7 @@ $resources['operations']['DailyFantasyPlayers'] = [
     ]
 ];
 
-/**
- * Action: Get Projected Fantasy Defense Stats By Season and Week
- * Resource: FantasyDefenseProjectionsByGame
- *
- * http://api.nfldata.apiphany.com/nfl/v2/{subscription}/{format}/FantasyDefenseProjectionsByGame/{season}/{week}
- */
-$resources['operations']['FantasyDefenseProjectionsByGame'] = [
-    'httpMethod' => 'GET',
-    'uri' => 'FantasyDefenseProjectionsByGame{/Season}{/Week}',
-    'responseModel' => 'JSON_Resource',
-    'parameters' => [
-        'Format' => [ 'type' => 'string', 'location' => 'uri', 'default' => 'json' ],
-        'Season' => [
-            'required' => true,
-            'type' => 'string',
-            'location' => 'uri'
-        ],
-        'Week' => [
-            'required' => true,
-            'type' => 'string',
-            'location' => 'uri'
-        ]
-    ]
-];
+
 
 /**
  * These models are used by Guzzle to determine how to return the result
