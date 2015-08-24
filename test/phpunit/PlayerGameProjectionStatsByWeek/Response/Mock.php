@@ -6,7 +6,7 @@
  * @package   FantasyDataAPI
  */
 
-namespace FantasyDataAPI\Test\PlayerGameProjectionStatsByTeam\Response;
+namespace FantasyDataAPI\Test\PlayerGameProjectionStatsByWeek\Response;
 
 use GuzzleHttp\Message\Response;
 use GuzzleHttp\Message\RequestInterface;

@@ -6,7 +6,7 @@
  * @package   FantasyDataAPI
  */
 
-namespace FantasyDataAPI\Test\Integration;
+namespace FantasyDataAPI\Test\GameStatsByWeek;
 
 use PHPUnit_Framework_TestCase;
 use FantasyDataAPI\Test\DebugClient;
@@ -14,7 +14,7 @@ use FantasyDataAPI\Test\DebugClient;
 use FantasyDataAPI\Enum\GameStatsByWeek;
 use FantasyDataAPI\Enum\Stadium;
 
-class GameStatsByWeekTest extends PHPUnit_Framework_TestCase
+class IntegrationTest extends PHPUnit_Framework_TestCase
 {
 
     /**
