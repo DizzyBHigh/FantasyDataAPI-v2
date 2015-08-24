@@ -127,6 +127,10 @@ class ResponseFactory
                 $response = new Player\Response\Mock( $request );
                 break;
 
+            case 'PlayerGameProjectionStatsByWeek':
+                $response = new PlayerGameProjectionStatsByWeek\Response\Mock( $request );
+                break;
+
             case 'PlayerGameProjectionStatsByTeam':
                 $response = new PlayerGameProjectionStatsByTeam\Response\Mock( $request );
                 break;
@@ -135,21 +139,36 @@ class ResponseFactory
                 $response = new PlayerGameProjectionStatsByPlayerID\Response\Mock( $request );
                 break;
 
-
-            case 'PlayerGameStatsByPlayerID':
-                $response = new PlayerGameStatsByPlayerID\Response\Mock( $request );
+            case 'PlayerGameStatsByWeek':
+                $response = new PlayerGameStatsByWeek\Response\Mock( $request );
                 break;
 
             case 'PlayerGameStatsByTeam':
                 $response = new PlayerGameStatsByTeam\Response\Mock( $request );
                 break;
 
-            case 'PlayerGameStatsByWeek':
-                $response = new PlayerGameStatsByWeek\Response\Mock( $request );
+            case 'PlayerGameStatsByPlayerID':
+                $response = new PlayerGameStatsByPlayerID\Response\Mock( $request );
                 break;
 
             case 'Players':
                 $response = new Players\Response\Mock( $request );
+                break;
+
+            case 'PlayerSeasonProjectionStats':
+                $response = new PlayerSeasonProjectionStats\Response\Mock( $request );
+                break;
+
+            case 'PlayerSeasonProjectionStatsByPlayerID':
+                $response = new PlayerSeasonProjectionStatsByPlayerID\Response\Mock( $request );
+                break;
+
+            case 'PlayerSeasonProjectionStatsByTeam':
+                $response = new PlayerSeasonProjectionStatsByTeam\Response\Mock( $request );
+                break;
+
+            case 'PlayerSeasonStats':
+                $response = new PlayerSeasonStats\Response\Mock( $request );
                 break;
 
             case 'PlayerSeasonStatsByPlayerID':

@@ -27,6 +27,7 @@ $resources['operations']['AreAnyGamesInProgress'] = [
         ],
     ],
 ];
+
 /**
  * Action: Get Current Season
  * Resource: CurrentSeason
@@ -148,7 +149,6 @@ $resources['operations']['LastCompletedWeek'] = [
     ]
 ];
 
-// deprecated -- Get Current Week
 /**
  * Action: Get Current Week
  * Resource: CurrentWeek
@@ -165,7 +165,7 @@ $resources['operations']['CurrentWeek'] = [
         ],
     ],
 ];
-// deprecated -- Get Upcoming Week
+
 /**
  * Action: Get Upcoming Week
  * Resource: UpcomingWeek
@@ -348,115 +348,10 @@ $resources['operations']['FreeAgents'] = [
     ]
 ];
 
-/**
- * Action: Get Players Game Stats by Team for Season for Week
- * Resource: PlayerGameStatsByTeam
- *
- * http://api.nfldata.apiphany.com/nfl/v2/{subscription}/{format}/PlayerGameStatsByTeam/{season}/{week}/{team}?key=<Your_developer_key>
- */
-$resources['operations']['PlayerGameStatsByTeam'] = [
-    'httpMethod' => 'GET',
-    'uri' => 'PlayerGameStatsByTeam{/Season}{/Week}{/Team}',
-    'responseModel' => 'JSON_Resource',
-    'parameters' => [
-        'Format' => [ 'type' => 'string', 'location' => 'uri', 'default' => 'json' ],
-        'Season' => [
-            'required' => true,
-            'type' => 'string',
-            'location' => 'uri'
-        ],
-        'Week' => [
-            'required' => true,
-            'type' => 'string',
-            'location' => 'uri'
-        ],
-        'Team' => [
-            'required' => true,
-            'type' => 'string',
-            'location' => 'uri'
-        ]
-    ]
-];
 
-/**
- * Action: Get Players Season Stats by Team for Season
- * Resource: PlayerSeasonStatsByTeam
- *
- * http://api.nfldata.apiphany.com/nfl/v2/{subscription}/{format}/PlayerSeasonStatsByTeam/{season}/{team}?key=<Your_developer_key>
- */
-$resources['operations']['PlayerSeasonStatsByTeam'] = [
-    'httpMethod' => 'GET',
-    'uri' => 'PlayerSeasonStatsByTeam{/Season}{/Team}',
-    'responseModel' => 'JSON_Resource',
-    'parameters' => [
-        'Format' => [ 'type' => 'string', 'location' => 'uri', 'default' => 'json' ],
-        'Season' => [
-            'required' => true,
-            'type' => 'string',
-            'location' => 'uri'
-        ],
-        'Team' => [
-            'required' => true,
-            'type' => 'string',
-            'location' => 'uri'
-        ]
-    ]
-];
 
-/**
- * Action: Get Players Game Stats by Player for Season for Week
- * Resource: PlayerGameStatsByPlayerID
- *
- * http://api.nfldata.apiphany.com/nfl/v2/{subscription}/{format}/PlayerGameStatsByPlayerID/{season}/{week}/{playerid}?key=<Your_developer_key>
- */
-$resources['operations']['PlayerGameStatsByPlayerID'] = [
-    'httpMethod' => 'GET',
-    'uri' => 'PlayerGameStatsByPlayerID{/Season}{/Week}{/PlayerID}',
-    'responseModel' => 'JSON_Resource',
-    'parameters' => [
-        'Format' => [ 'type' => 'string', 'location' => 'uri', 'default' => 'json' ],
-        'Season' => [
-            'required' => true,
-            'type' => 'string',
-            'location' => 'uri'
-        ],
-        'Week' => [
-            'required' => true,
-            'type' => 'string',
-            'location' => 'uri'
-        ],
-        'PlayerID' => [
-            'required' => true,
-            'type' => 'string',
-            'location' => 'uri'
-        ]
-    ]
-];
 
-/**
- * Action: Get Players Season Stats by Player for Season
- * Resource: PlayerSeasonStatsByPlayerID
- *
- * http://api.nfldata.apiphany.com/nfl/v2/{subscription}/{format}/PlayerSeasonStatsByPlayerID/{season}/{playerid}?key=<Your_developer_key>
- */
-$resources['operations']['PlayerSeasonStatsByPlayerID'] = [
-    'httpMethod' => 'GET',
-    'uri' => 'PlayerSeasonStatsByPlayerID{/Season}{/PlayerID}',
-    'responseModel' => 'JSON_Resource',
-    'parameters' => [
-        'Format' => [ 'type' => 'string', 'location' => 'uri', 'default' => 'json' ],
-        'Season' => [
-            'required' => true,
-            'type' => 'string',
-            'location' => 'uri'
-        ],
-        'PlayerID' => [
-            'required' => true,
-            'type' => 'string',
-            'location' => 'uri'
-        ]
-    ]
-];
+
 
 /**
  * Action: Get Season League Leaders
@@ -598,7 +493,6 @@ $resources['operations']['Injuries'] = [
     ]
 ];
 
-
 /**
  * Action: Get News
  * Resource: News
@@ -699,30 +593,6 @@ $resources['operations']['LiveBoxScores'] = [
     ]
 ];
 
-/**
- * Action: Get Players Game Stats for Season for Week
- * Resource: PlayerGameStatsByWeek
- *
- * http://api.nfldata.apiphany.com/nfl/v2/{subscription}/{format}/PlayerGameStatsByWeek/{season}/{week}?key=<Your_developer_key>
- */
-$resources['operations']['PlayerGameStatsByWeek'] = [
-    'httpMethod' => 'GET',
-    'uri' => 'PlayerGameStatsByWeek{/Season}{/Week}',
-    'responseModel' => 'JSON_Resource',
-    'parameters' => [
-        'Format' => [ 'type' => 'string', 'location' => 'uri', 'default' => 'json' ],
-        'Season' => [
-            'required' => true,
-            'type' => 'string',
-            'location' => 'uri'
-        ],
-        'Week' => [
-            'required' => true,
-            'type' => 'string',
-            'location' => 'uri'
-        ]
-    ]
-];
 
 /**
  * Action: Get Game Stats for Season
@@ -859,8 +729,263 @@ $resources['operations']['Stadiums'] = [
     ]
 ];
 
+
+
 /**
- * Action: Get Projected Players Game Stats by Season, Week and Team
+ * Action: Get Player Season Stats By Season
+ * Resource: PlayerSeasonStats
+ *
+ * http://api.nfldata.apiphany.com/nfl/v2/{format}/PlayerSeasonStats/{season}
+ */
+$resources['operations']['PlayerSeasonStats'] = [
+    'httpMethod' => 'GET',
+    'uri' => 'PlayerSeasonStats{/Season}',
+    'responseModel' => 'JSON_Resource',
+    'parameters' => [
+        'Format' => [ 'type' => 'string', 'location' => 'uri', 'default' => 'json' ],
+        'Season' => [
+            'required' => true,
+            'type' => 'string',
+            'location' => 'uri'
+        ],
+    ]
+];
+
+/**
+ * Action: Get Player Season Stats by Team for Season
+ * Resource: PlayerSeasonStatsByTeam
+ *
+ * http://api.nfldata.apiphany.com/nfl/v2/{format}/PlayerSeasonStatsByTeam/{season}/{team}
+ */
+$resources['operations']['PlayerSeasonStatsByTeam'] = [
+    'httpMethod' => 'GET',
+    'uri' => 'PlayerSeasonStatsByTeam{/Season}{/Team}',
+    'responseModel' => 'JSON_Resource',
+    'parameters' => [
+        'Format' => [ 'type' => 'string', 'location' => 'uri', 'default' => 'json' ],
+        'Season' => [
+            'required' => true,
+            'type' => 'string',
+            'location' => 'uri'
+        ],
+        'Team' => [
+            'required' => true,
+            'type' => 'string',
+            'location' => 'uri'
+        ]
+    ]
+];
+
+/**
+ * Action: Get Players Season Stats by Player for Season
+ * Resource: PlayerSeasonStatsByPlayerID
+ *
+ * http://api.nfldata.apiphany.com/nfl/v2/{subscription}/{format}/PlayerSeasonStatsByPlayerID/{season}/{playerid}
+ */
+$resources['operations']['PlayerSeasonStatsByPlayerID'] = [
+    'httpMethod' => 'GET',
+    'uri' => 'PlayerSeasonStatsByPlayerID{/Season}{/PlayerID}',
+    'responseModel' => 'JSON_Resource',
+    'parameters' => [
+        'Format' => [ 'type' => 'string', 'location' => 'uri', 'default' => 'json' ],
+        'Season' => [
+            'required' => true,
+            'type' => 'string',
+            'location' => 'uri'
+        ],
+        'PlayerID' => [
+            'required' => true,
+            'type' => 'string',
+            'location' => 'uri'
+        ]
+    ]
+];
+
+/**
+ * Action: Get Player Season Projection Stats By Season
+ * Resource: PlayerSeasonProjectionStats
+ *
+ * http://api.nfldata.apiphany.com/nfl/v2/{format}/PlayerSeasonProjectionStatsByWeek/{season}
+ */
+$resources['operations']['PlayerSeasonProjectionStats'] = [
+    'httpMethod' => 'GET',
+    'uri' => 'PlayerSeasonProjectionStats{/Season}',
+    'responseModel' => 'JSON_Resource',
+    'parameters' => [
+        'Format' => [ 'type' => 'string', 'location' => 'uri', 'default' => 'json' ],
+        'Season' => [
+            'required' => true,
+            'type' => 'string',
+            'location' => 'uri'
+        ],
+    ]
+];
+
+/**
+ * Action: Get Player Season Projection Stats by Season, Team
+ * Resource: PlayerSeasonStatsByTeam
+ *
+ * http://api.nfldata.apiphany.com/nfl/v2/{format}/PlayerSeasonProjectionStatsByTeam/{season}/{team}
+ */
+$resources['operations']['PlayerSeasonProjectionStatsByTeam'] = [
+    'httpMethod' => 'GET',
+    'uri' => 'PlayerSeasonProjectionStatsByTeam{/Season}{/Team}',
+    'responseModel' => 'JSON_Resource',
+    'parameters' => [
+        'Format' => [ 'type' => 'string', 'location' => 'uri', 'default' => 'json' ],
+        'Season' => [
+            'required' => true,
+            'type' => 'string',
+            'location' => 'uri'
+        ],
+        'Team' => [
+            'required' => true,
+            'type' => 'string',
+            'location' => 'uri'
+        ]
+    ]
+];
+
+/**
+ * Action: Get Players Season Stats by Player for Season, PlayerID
+ * Resource: PlayerSeasonStatsByPlayerID
+ *
+ * http://api.nfldata.apiphany.com/nfl/v2/{format}/PlayerSeasonProjectionStatsByPlayerID/{season}/{playerid}
+ */
+$resources['operations']['PlayerSeasonProjectionStatsByPlayerID'] = [
+    'httpMethod' => 'GET',
+    'uri' => 'PlayerSeasonProjectionStatsByPlayerID{/Season}{/PlayerID}',
+    'responseModel' => 'JSON_Resource',
+    'parameters' => [
+        'Format' => [ 'type' => 'string', 'location' => 'uri', 'default' => 'json' ],
+        'Season' => [
+            'required' => true,
+            'type' => 'string',
+            'location' => 'uri'
+        ],
+        'PlayerID' => [
+            'required' => true,
+            'type' => 'string',
+            'location' => 'uri'
+        ]
+    ]
+];
+
+
+
+/**
+ * Action: Get Players Game Stats By Season and Week
+ * Resource: PlayerGameStatsByWeek
+ *
+ * http://api.nfldata.apiphany.com/nfl/v2/{subscription}/{format}/PlayerGameStatsByWeek/{season}/{week}?key=<Your_developer_key>
+ */
+$resources['operations']['PlayerGameStatsByWeek'] = [
+    'httpMethod' => 'GET',
+    'uri' => 'PlayerGameStatsByWeek{/Season}{/Week}',
+    'responseModel' => 'JSON_Resource',
+    'parameters' => [
+        'Format' => [ 'type' => 'string', 'location' => 'uri', 'default' => 'json' ],
+        'Season' => [
+            'required' => true,
+            'type' => 'string',
+            'location' => 'uri'
+        ],
+        'Week' => [
+            'required' => true,
+            'type' => 'string',
+            'location' => 'uri'
+        ]
+    ]
+];
+
+/**
+ * Action: Get Players Game Stats by Team for Season for Week
+ * Resource: PlayerGameStatsByTeam
+ *
+ * http://api.nfldata.apiphany.com/nfl/v2/{subscription}/{format}/PlayerGameStatsByTeam/{season}/{week}/{team}?key=<Your_developer_key>
+ */
+$resources['operations']['PlayerGameStatsByTeam'] = [
+    'httpMethod' => 'GET',
+    'uri' => 'PlayerGameStatsByTeam{/Season}{/Week}{/Team}',
+    'responseModel' => 'JSON_Resource',
+    'parameters' => [
+        'Format' => [ 'type' => 'string', 'location' => 'uri', 'default' => 'json' ],
+        'Season' => [
+            'required' => true,
+            'type' => 'string',
+            'location' => 'uri'
+        ],
+        'Week' => [
+            'required' => true,
+            'type' => 'string',
+            'location' => 'uri'
+        ],
+        'Team' => [
+            'required' => true,
+            'type' => 'string',
+            'location' => 'uri'
+        ]
+    ]
+];
+
+/**
+ * Action: Get Players Game Stats by Player for Season, Week and PlayerID
+ * Resource: PlayerGameStatsByPlayerID
+ *
+ * http://api.nfldata.apiphany.com/nfl/v2/{subscription}/{format}/PlayerGameStatsByPlayerID/{season}/{week}/{playerid}?key=<Your_developer_key>
+ */
+$resources['operations']['PlayerGameStatsByPlayerID'] = [
+    'httpMethod' => 'GET',
+    'uri' => 'PlayerGameStatsByPlayerID{/Season}{/Week}{/PlayerID}',
+    'responseModel' => 'JSON_Resource',
+    'parameters' => [
+        'Format' => [ 'type' => 'string', 'location' => 'uri', 'default' => 'json' ],
+        'Season' => [
+            'required' => true,
+            'type' => 'string',
+            'location' => 'uri'
+        ],
+        'Week' => [
+            'required' => true,
+            'type' => 'string',
+            'location' => 'uri'
+        ],
+        'PlayerID' => [
+            'required' => true,
+            'type' => 'string',
+            'location' => 'uri'
+        ]
+    ]
+];
+
+/**
+ * Action: Get Projected Player Game Stats by Season and Week
+ * Resource: PlayerGameProjectionStatsByWeek
+ *
+ * http://api.nfldata.apiphany.com/nfl/v2/{format}/PlayerGameProjectionStatsByWeek/{season}/{week}/
+ */
+$resources['operations']['PlayerGameProjectionStatsByWeek'] = [
+    'httpMethod' => 'GET',
+    'uri' => 'PlayerGameProjectionStatsByWeek{/Season}{/Week}',
+    'responseModel' => 'JSON_Resource',
+    'parameters' => [
+        'Format' => [ 'type' => 'string', 'location' => 'uri', 'default' => 'json' ],
+        'key' => [ 'type' => 'string', 'location' => 'query' ],
+        'Season' => [
+            'required' => true,
+            'type' => 'string',
+            'location' => 'uri'
+        ],
+        'Week' => [
+            'required' => true,
+            'type' => 'string',
+            'location' => 'uri'
+        ],
+    ]
+];
+
+/**
+ * Action: Get Projected Player Game Stats by Season, Week and Team
  * Resource: PlayerGameProjectionStatsByTeam
  *
  * http://api.nfldata.apiphany.com/nfl/v2/{subscription}/{format}/PlayerGameProjectionStatsByTeam/{season}/{week}/{team}
@@ -891,7 +1016,7 @@ $resources['operations']['PlayerGameProjectionStatsByTeam'] = [
 ];
 
 /**
- * Action: Get Players Game Projection Stats by Player for Season for Week and PlayerID
+ * Action: Get Player Game Projection Stats by Player for Season, Week and PlayerID
  * Resource: PlayerGameStatsByPlayerID
  *
  * http://api.nfldata.apiphany.com/nfl/v2/{format}/PlayerGameProjectionStatsByPlayerID/{season}/{week}/{playerid}
@@ -919,34 +1044,6 @@ $resources['operations']['PlayerGameProjectionStatsByPlayerID'] = [
         ]
     ]
 ];
-
-
-/**
- * Action: Get Projected Players Game Stats by Season and Week
- * Resource: PlayerGameProjectionStatsByWeek
- *
- * http://api.nfldata.apiphany.com/nfl/v2/{format}/PlayerGameProjectionStatsByWeek/{season}/{week}/
- */
-$resources['operations']['PlayerGameProjectionStatsByWeek'] = [
-    'httpMethod' => 'GET',
-    'uri' => 'PlayerGameProjectionStatsByWeek{/Season}{/Week}',
-    'responseModel' => 'JSON_Resource',
-    'parameters' => [
-        'Format' => [ 'type' => 'string', 'location' => 'uri', 'default' => 'json' ],
-        'key' => [ 'type' => 'string', 'location' => 'query' ],
-        'Season' => [
-            'required' => true,
-            'type' => 'string',
-            'location' => 'uri'
-        ],
-        'Week' => [
-            'required' => true,
-            'type' => 'string',
-            'location' => 'uri'
-        ],
-    ]
-];
-
 
 
 /**
