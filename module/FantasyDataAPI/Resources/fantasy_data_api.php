@@ -294,12 +294,27 @@ $resources['operations']['Standings'] = [
 ];
 
 /**
+ * Action: Get Available Players
+ * Resource: Players
+ *
+ * http://api.nfldata.apiphany.com/nfl/v2/{subscription}/{format}/Players
+ */
+$resources['operations']['Players'] = [
+    'httpMethod' => 'GET',
+    'uri' => 'Players',
+    'responseModel' => 'JSON_Resource',
+    'parameters' => [
+        'Format' => [ 'type' => 'string', 'location' => 'uri', 'default' => 'json' ],
+    ]
+];
+
+/**
  * Action: Get Team Roster and Depth Charts
  * Resource: Players
  *
  * http://api.nfldata.apiphany.com/nfl/v2/{subscription}/{format}/Players/{team}?key=<Your_developer_key>
  */
-$resources['operations']['Players'] = [
+$resources['operations']['PlayersByTeam'] = [
     'httpMethod' => 'GET',
     'uri' => 'Players{/Team}',
     'responseModel' => 'JSON_Resource',

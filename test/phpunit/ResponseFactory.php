@@ -127,6 +127,14 @@ class ResponseFactory
                 $response = new NewsByTeam\Response\Mock( $request );
                 break;
 
+            case 'Players':
+                $response = new Players\Response\Mock( $request );
+                break;
+
+            case 'PlayersByTeam':
+                $response = new Players\Response\Mock( $request );
+                break;
+
             case 'Player':
                 $response = new Player\Response\Mock( $request );
                 break;
@@ -153,10 +161,6 @@ class ResponseFactory
 
             case 'PlayerGameStatsByPlayerID':
                 $response = new PlayerGameStatsByPlayerID\Response\Mock( $request );
-                break;
-
-            case 'Players':
-                $response = new Players\Response\Mock( $request );
                 break;
 
             case 'PlayerSeasonProjectionStats':

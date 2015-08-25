@@ -32,8 +32,6 @@ use GuzzleHttp\Command;
  * @method Command\Model TeamGameStats() TeamGameStats( array $pOptions )
  * @method Command\Model TeamSeasonStats() TeamSeasonStats( array $pOptions )
  * @method Command\Model Standings() Standings( array $pOptions )
- * @method Command\Model Players() Players( array $pOptions )
- * @method Command\Model Player() Player( array $pOptions )
  * @method Command\Model FreeAgents() FreeAgents( array $pOptions )
  * @method Command\Model SeasonLeagueLeaders() SeasonLeagueLeaders( array $pOptions )
  * @method Command\Model GameLeagueLeadersByWeek() GameLeagueLeadersByWeek( array $pOptions )
@@ -54,21 +52,21 @@ use GuzzleHttp\Command;
  * @method Command\Model ActiveBoxScores() ActiveBoxScores( array $pOptions )
  * @method Command\Model BoxScores() BoxScores( array $pOptions )
  * @method Command\Model Stadiums() Stadiums( array $pOptions )
- *
+ * @method Command\Model Players() Players( array $pOptions )
+ * @method Command\Model PlayersByTeam() PlayersByTeam( array $pOptions )
+ * @method Command\Model Player() Player( array $pOptions )
  * @method Command\Model PlayerSeasonStats() PlayerSeasonStats( array $pOptions )
  * @method Command\Model PlayerSeasonStatsByTeam() PlayerSeasonStatsByTeam( array $pOptions )
  * @method Command\Model PlayerSeasonStatsByPlayerID() PlayerSeasonStatsByPlayerID( array $pOptions )
  * @method Command\Model PlayerSeasonProjectionStats() PlayerSeasonProjectionStats( array $pOptions )
  * @method Command\Model PlayerSeasonProjectionStatsByTeam() PlayerSeasonProjectionStatsByTeam( array $pOptions )
  * @method Command\Model PlayerSeasonProjectionStatsByPlayerID() PlayerSeasonProjectionStatsByPlayerID( array $pOptions )
- *
  * @method Command\Model PlayerGameStatsByWeek() PlayerGameStatsByWeek( array $pOptions )
  * @method Command\Model PlayerGameStatsByTeam() PlayerGameStatsByTeam( array $pOptions )
  * @method Command\Model PlayerGameStatsByPlayerID() PlayerGameStatsByPlayerID( array $pOptions )
  * @method Command\Model PlayerGameProjectionStatsByTeam() PlayerGameProjectionStatsByTeam( array $pOptions )
  * @method Command\Model PlayerGameProjectionStatsByWeek() PlayerGameProjectionStatsByWeek( array $pOptions )
  * @method Command\Model PlayerGameProjectionStatsByPlayerID() PlayerGameProjectionStatsByPlayerID( array $pOptions )
- *
  * @method Command\Model FantasyPlayersByADP() FantasyPlayersByADP( array $pOptions )
  * @method Command\Model DailyFantasyPlayers() DailyFantasyPlayers( array $pOptions )
  */

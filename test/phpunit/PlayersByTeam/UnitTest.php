@@ -6,7 +6,7 @@
  * @package   FantasyDataAPI
  */
 
-namespace FantasyDataAPI\Test\Players;
+namespace FantasyDataAPI\Test\PlayersByTeam;
 
 use PHPUnit_Framework_TestCase;
 
@@ -34,7 +34,7 @@ class UnitTest extends PHPUnit_Framework_TestCase
         static::$sClient = new MockClient($_SERVER['FANTASY_DATA_API_KEY']);
 
         /** \GuzzleHttp\Command\Model */
-        static::$sClient->Players(['Team' => 'NE']);
+        static::$sClient->PlayersByTeam(['Team' => 'NE']);
 
         static::$sResponse = static::$sClient->mHistory->getLastResponse();
         static::$sEffectiveUrl = static::$sResponse->getEffectiveUrl();
@@ -79,6 +79,22 @@ class UnitTest extends PHPUnit_Framework_TestCase
         $this->assertEquals( static::$sUrlFragments[6], 'Players');
     }
 
+    /**
+     * Given: A developer API key
+     * When: API is queried for NE Players
+     * Then: Expect that the Team is placed in the URI
+     *
+     * @group Unit
+     * @small
+     */
+    public function testTeamInURI()
+    {
+        /** key 7 should be the Team based on URL structure */
+        $this->assertArrayHasKey(7, static::$sUrlFragments);
+
+        list($team) = explode('?', static::$sUrlFragments[7]);
+        $this->assertEquals( $team, 'NE');
+    }
 
     /**
      * Given: A developer API key
@@ -88,7 +104,7 @@ class UnitTest extends PHPUnit_Framework_TestCase
      * @group Unit
      * @small
      */
-    public function testPlayersSuccessfulResponse()
+    public function testNEPlayersSuccessfulResponse()
     {
         $this->assertEquals('200', static::$sResponse->getStatusCode());
     }
