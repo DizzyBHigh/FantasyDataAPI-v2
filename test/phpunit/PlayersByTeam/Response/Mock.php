@@ -6,7 +6,7 @@
  * @package   FantasyDataAPI
  */
 
-namespace FantasyDataAPI\Test\Players\Response;
+namespace FantasyDataAPI\Test\PlayersByTeam\Response;
 
 use GuzzleHttp\Message\Response;
 use GuzzleHttp\Message\RequestInterface;
@@ -18,11 +18,11 @@ class Mock extends Response
     public function __construct (RequestInterface $pRequest)
     {
         /** url parsing "formula" for Players */
-        list(, , , $format, ) = explode( '/', $pRequest->getPath() );
+        list(, , , $format, , $team) = explode( '/', $pRequest->getPath() );
         /** hardcode subscription so we can keep using the same filenames!*/
         $subscription = 'developer';
 
-        $file_partial = __DIR__ . '/' . implode('.', [$subscription, $format]);
+        $file_partial = __DIR__ . '/' . implode('.', [$subscription, $format, $team]);
 
         $headers = include($file_partial . '.header.php');
         $response_code = explode(' ', $headers[0])[1];;
