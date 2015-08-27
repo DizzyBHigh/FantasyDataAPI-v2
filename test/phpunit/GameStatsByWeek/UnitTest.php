@@ -29,7 +29,7 @@ class UnitTest extends PHPUnit_Framework_TestCase
      * Set up our test fixture.
      *
      * Expect a service URL something like this:
-     *   http://api.nfldata.apiphany.com/developer/json/GameStatsByWeek/2013REG/17?key=000aaaa0-a00a-0000-0a0a-aa0a00000000
+     *   http://api.nfldata.apiphany.com/developer/json/GameStatsByWeek/2013REG/17
      */
     public static function setUpBeforeClass()
     {
@@ -51,13 +51,12 @@ class UnitTest extends PHPUnit_Framework_TestCase
         static::$sUrlFragments = null;
     }
 
-
     /**
      * Given: A developer API key
      * When: API is queried for 2013REG, Week 17, GameStatsByWeek
      * Then: Expect that the json format is placed in the URI
      *
-     * @group Unit
+     * @group Uggy
      * @small
      */
     public function testFormatInURI()
@@ -72,7 +71,7 @@ class UnitTest extends PHPUnit_Framework_TestCase
      * When: API is queried for 2013REG, Week 17, GameStatsByWeek
      * Then: Expect that the GameStatsByWeek resource is placed in the URI
      *
-     * @group Unit
+     * @group Uggy
      * @small
      */
     public function testResourceInURI()
@@ -87,7 +86,7 @@ class UnitTest extends PHPUnit_Framework_TestCase
      * When: API is queried for 2013REG, Week 17, GameStatsByWeek
      * Then: Expect that the Season is placed in the URI
      *
-     * @group Unit
+     * @group Uggy
      * @small
      */
     public function testSeasonInURI()
@@ -102,7 +101,7 @@ class UnitTest extends PHPUnit_Framework_TestCase
      * When: API is queried for 2013REG, Week 17, GameStatsByWeek
      * Then: Expect that the Week is placed in the URI
      *
-     * @group Unit
+     * @group Uggy
      * @small
      */
     public function testWeekInURI()
@@ -119,7 +118,7 @@ class UnitTest extends PHPUnit_Framework_TestCase
      * When: API is queried for 2013REG, Week 17, GameStatsByWeek
      * Then: Expect a 200 response with an array of player game stats
      *
-     * @group Unit
+     * @group Uggy
      * @small
      */
     public function testSuccessfulResponse()

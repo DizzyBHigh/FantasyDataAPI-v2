@@ -9,7 +9,7 @@
 $resources = [];
 //$resources['baseUrl'] = 'http://api.nfldata.apiphany.com/{Subscription}/{Format}/';
 /** Use New V2 Base URL */
-$resources['baseUrl'] = 'http://api.nfldata.apiphany.com/nfl/v2/{Format}/';
+$resources['baseUrl'] = 'http://http://api.fantasydata.net//nfl/v2/{Format}/';
 
 /**
  * Action: Check If Games In Progress
@@ -743,7 +743,7 @@ $resources['operations']['GameStats'] = [
  * Action: Get Game Stats for Season for Week
  * Resource: GameStatsByWeek
  *
- * http://api.nfldata.apiphany.com/nfl/v2/{subscription}/{format}/GameStatsByWeek/{season}/{week}?key=<Your_developer_key>
+ * http://api.nfldata.apiphany.com/nfl/v2/{subscription}/{format}/GameStatsByWeek/{season}/{week}
  */
 $resources['operations']['GameStatsByWeek'] = [
     'httpMethod' => 'GET',
