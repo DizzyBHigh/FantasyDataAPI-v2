@@ -119,6 +119,9 @@ class ResponseFactory
                 $response = new BoxScoresDelta\Response\Mock( $request );
                 break;
 
+            case 'RecentlyUpdatedBoxScores':
+                $response = new RecentlyUpdatedBoxScores\Response\Mock( $request );
+                break;
 
             case 'News':
                 $response = new News\Response\Mock( $request );

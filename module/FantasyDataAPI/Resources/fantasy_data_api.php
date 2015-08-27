@@ -698,6 +698,26 @@ $resources['operations']['LiveBoxScores'] = [
     ]
 ];
 
+/**
+ * Action: Get Recently Updated Box Scores
+ * Resource: RecentlyUpdatedBoxScores
+ *
+ * http://api.nfldata.apiphany.com/nfl/v2/{subscription}/{format}/RecentlyUpdatedBoxScores/{minutes}
+ */
+$resources['operations']['RecentlyUpdatedBoxScores'] = [
+    'httpMethod' => 'GET',
+    'uri' => 'RecentlyUpdatedBoxScores{/Minutes}',
+    'responseModel' => 'JSON_Resource',
+    'parameters' => [
+        'Format' => [ 'type' => 'string', 'location' => 'uri', 'default' => 'json' ],
+        'Minutes' => [
+            'required' => true,
+            'type' => 'string',
+            'location' => 'uri'
+        ]
+    ]
+];
+
 
 /**
  * Action: Get Game Stats for Season
