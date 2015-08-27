@@ -87,10 +87,6 @@ class ResponseFactory
                 $response = new DailyFantasyPlayers\Response\Mock( $request );
                 break;
 
-            case 'FinalBoxScores':
-                $response = new FinalBoxScores\Response\Mock( $request );
-                break;
-
             case 'FreeAgents':
                 $response = new FreeAgents\Response\Mock( $request );
                 break;
@@ -111,9 +107,18 @@ class ResponseFactory
                 $response = new Injuries\Response\Mock( $request );
                 break;
 
+            case 'FinalBoxScores':
+                $response = new FinalBoxScores\Response\Mock( $request );
+                break;
+
             case 'LiveBoxScores':
                 $response = new LiveBoxScores\Response\Mock( $request );
                 break;
+
+            case 'BoxScoresDelta':
+                $response = new BoxScoresDelta\Response\Mock( $request );
+                break;
+
 
             case 'News':
                 $response = new News\Response\Mock( $request );
