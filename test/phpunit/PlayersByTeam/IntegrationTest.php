@@ -15,7 +15,7 @@ use FantasyDataAPI\Enum\Players;
 use FantasyDataAPI\Enum\PlayerNews;
 use FantasyDataAPI\Enum\PlayerSeason;
 
-class UggyTest extends PHPUnit_Framework_TestCase
+class IntegrationTest extends PHPUnit_Framework_TestCase
 {
 
     /**
@@ -23,7 +23,7 @@ class UggyTest extends PHPUnit_Framework_TestCase
      * When: API is queried for NE Players
      * Then: Expect a 200 response with an array entries that each contain Players, PlayerNews and PlayerSeason info
      *
-     * @group Uggy
+     * @group Integration
      * @medium
      */
     public function testNEPlayersSuccessfulResponse()
@@ -286,7 +286,7 @@ class UggyTest extends PHPUnit_Framework_TestCase
      * When: API is queried for NE Players
      * Then: Expect a 401 response in the form of a Guzzle CommandClientException
      *
-     * @group Uggy
+     * @group Integration
      * @small
      *
      * @expectedException \GuzzleHttp\Command\Exception\CommandClientException

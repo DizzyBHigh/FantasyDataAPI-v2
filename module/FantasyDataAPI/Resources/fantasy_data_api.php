@@ -653,6 +653,51 @@ $resources['operations']['LiveBoxScores'] = [
     ]
 ];
 
+/**
+ * Action: Get Box Score Delta
+ * Resource: BoxScoresDelta
+ *
+ * http://api.nfldata.apiphany.com/nfl/v2/{subscription}/{format}/BoxScoresDelta/{season}/{week}/{minutes}
+ */
+$resources['operations']['BoxScoresDelta'] = [
+    'httpMethod' => 'GET',
+    'uri' => 'BoxScoresDelta{/Season}{/Week}{/Minutes}',
+    'responseModel' => 'JSON_Resource',
+    'parameters' => [
+        'Format' => [ 'type' => 'string', 'location' => 'uri', 'default' => 'json' ],
+        'Season' => [
+            'required' => true,
+            'type' => 'string',
+            'location' => 'uri'
+        ],
+        'Week' => [
+            'required' => true,
+            'type' => 'string',
+            'location' => 'uri'
+        ],
+        'Minutes' => [
+            'required' => true,
+            'type' => 'string',
+            'location' => 'uri'
+        ]
+    ]
+];
+
+/**
+ * Action: Get Live Box Scores
+ * Resource: LiveBoxScores
+ *
+ * http://api.nfldata.apiphany.com/nfl/v2/{subscription}/{format}/LiveBoxScores?key=<Your_developer_key>
+ */
+$resources['operations']['LiveBoxScores'] = [
+    'httpMethod' => 'GET',
+    'uri' => 'LiveBoxScores',
+    'responseModel' => 'JSON_Resource',
+    'parameters' => [
+        'Format' => [ 'type' => 'string', 'location' => 'uri', 'default' => 'json' ],
+    ]
+];
+
 
 /**
  * Action: Get Game Stats for Season
