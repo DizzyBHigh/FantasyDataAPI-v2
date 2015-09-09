@@ -56,7 +56,7 @@ class UnitTest extends PHPUnit_Framework_TestCase
      * When: API is queried for 2013REG, Week 17, GameStatsByWeek
      * Then: Expect that the json format is placed in the URI
      *
-     * @group Uggy
+     * @group Unit
      * @small
      */
     public function testFormatInURI()
@@ -71,7 +71,7 @@ class UnitTest extends PHPUnit_Framework_TestCase
      * When: API is queried for 2013REG, Week 17, GameStatsByWeek
      * Then: Expect that the GameStatsByWeek resource is placed in the URI
      *
-     * @group Uggy
+     * @group Unit
      * @small
      */
     public function testResourceInURI()
@@ -86,7 +86,7 @@ class UnitTest extends PHPUnit_Framework_TestCase
      * When: API is queried for 2013REG, Week 17, GameStatsByWeek
      * Then: Expect that the Season is placed in the URI
      *
-     * @group Uggy
+     * @group Unit
      * @small
      */
     public function testSeasonInURI()
@@ -101,7 +101,7 @@ class UnitTest extends PHPUnit_Framework_TestCase
      * When: API is queried for 2013REG, Week 17, GameStatsByWeek
      * Then: Expect that the Week is placed in the URI
      *
-     * @group Uggy
+     * @group Unit
      * @small
      */
     public function testWeekInURI()
@@ -118,7 +118,7 @@ class UnitTest extends PHPUnit_Framework_TestCase
      * When: API is queried for 2013REG, Week 17, GameStatsByWeek
      * Then: Expect a 200 response with an array of player game stats
      *
-     * @group Uggy
+     * @group Unit
      * @small
      */
     public function testSuccessfulResponse()
