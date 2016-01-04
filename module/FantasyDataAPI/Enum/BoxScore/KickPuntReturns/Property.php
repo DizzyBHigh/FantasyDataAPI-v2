@@ -32,4 +32,5 @@ class Property
     const KEY_PUNT_RETURN_YARDS = 'PuntReturnYards';
     const KEY_PUNT_RETURN_YARDS_PER_ATTEMPT = 'PuntReturnYardsPerAttempt';
     const KEY_PUNT_RETURNS = 'PuntReturns';
+    const KEY_FUMBLES_LOST = 'FumblesLost';
 }

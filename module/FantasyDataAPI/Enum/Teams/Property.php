@@ -39,4 +39,5 @@ class Property
     const KEY_UPCOMING_SALARY = 'UpcomingSalary';
     const KEY_UPCOMING_OPPONENT_RANK = 'UpcomingOpponentRank';
     const KEY_UPCOMING_OPPONENT_POSITION_RANK = 'UpcomingOpponentPositionRank';
+    const KEY_UPCOMING_OPPONENT = 'UpcomingOpponent';
 }

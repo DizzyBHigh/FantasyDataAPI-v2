@@ -24,6 +24,7 @@ class IntegrationTest extends PHPUnit_Framework_TestCase
      * Then: Expect a 200 response with an array entries that each contain Players, PlayerNews and PlayerSeason info
      *
      * @group Integration
+     * @group AllTests
      * @medium
      */
     public function testFreeAgentsSuccessfulResponse()
@@ -42,8 +43,8 @@ class IntegrationTest extends PHPUnit_Framework_TestCase
 
         $check_players = function ( $pPlayers )
         {
-            /** we expect 44 stats */
-            $this->assertCount( 44, $pPlayers );
+            /** we expect 45 stats */
+            $this->assertCount( 45, $pPlayers );
 
             $cloned_array = $pPlayers;
 
@@ -100,6 +101,8 @@ class IntegrationTest extends PHPUnit_Framework_TestCase
             $process_key( Players\Property::KEY_PLAYER_SEASON );
             /**  new in V2 */
             $process_key( Players\Property::KEY_UPCOMING_SALARY );
+            $process_key( Players\Property::KEY_FANTASY_ALARM_PLAYER_ID );
+            //var_dump($cloned_array);
 
             if ( false == empty( $pPlayers[Players\Property::KEY_LATEST_NEWS]) )
             {
@@ -134,8 +137,8 @@ class IntegrationTest extends PHPUnit_Framework_TestCase
             {
                 $cloned_season = $pPlayers[Players\Property::KEY_PLAYER_SEASON];
 
-                /** we expect 127 keys */
-                $this->assertCount( 127, $cloned_season );
+                /** we expect 133 keys */
+                $this->assertCount( 133, $cloned_season );
 
                 $process_player_season = function ( $pSeasonKey ) use ( &$cloned_season )
                 {
@@ -272,12 +275,17 @@ class IntegrationTest extends PHPUnit_Framework_TestCase
                 $process_player_season( PlayerSeason\Property::KEY_TWO_POINT_CONVERSION_RETURNS);
                 $process_player_season( PlayerSeason\Property::KEY_FANTASY_POINTS_FAN_DUEL);
                 $process_player_season( PlayerSeason\Property::KEY_FANTASY_POINTS_DRAFT_KINGS);
+                $process_player_season( PlayerSeason\Property::KEY_FIELD_GOALS_MADE_0_TO_19);
+                $process_player_season( PlayerSeason\Property::KEY_FIELD_GOALS_MADE_2O_TO_29);
+                $process_player_season( PlayerSeason\Property::KEY_FIELD_GOALS_MADE_3O_TO_39);
+                $process_player_season( PlayerSeason\Property::KEY_FIELD_GOALS_MADE_4O_TO_49);
+                $process_player_season( PlayerSeason\Property::KEY_FIELD_GOALS_MADE_5O_PLUS);
+                $process_player_season( PlayerSeason\Property::KEY_FANTASY_POINTS_YAHOO);
 
-
-                $this->assertEmpty( $cloned_season );
+                $this->assertEmpty( $cloned_season, 'PlayerSeason\Property: ' );
             }
 
-            $this->assertEmpty( $cloned_array );
+            $this->assertEmpty( $cloned_array, 'Players/Property' );
         };
 
         $stats = $result->toArray();
@@ -291,6 +299,7 @@ class IntegrationTest extends PHPUnit_Framework_TestCase
      * Then: Expect a 401 response in the form of a Guzzle CommandClientException
      *
      * @group Integration
+     * @group AllTests
      * @small
      *
      * @expectedException \GuzzleHttp\Command\Exception\CommandClientException

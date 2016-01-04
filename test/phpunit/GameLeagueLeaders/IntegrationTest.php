@@ -22,6 +22,7 @@ class IntegrationTest extends PHPUnit_Framework_TestCase
      * Then: Expect a 200 response with an array entries that each contain GameLeagueLeaders and ScoringDetails info
      *
      * @group Integration
+     * @group AllTests
      * @medium
      */
     public function testSuccessfulResponse()
@@ -37,8 +38,8 @@ class IntegrationTest extends PHPUnit_Framework_TestCase
 
         $check_player_game = function ( $pGameLeagueLeaders )
         {
-            /** we expect 137 stats */
-            $this->assertCount( 137, $pGameLeagueLeaders );
+            /** we expect 144 stats */
+            $this->assertCount( 144, $pGameLeagueLeaders );
 
             $cloned_array = $pGameLeagueLeaders;
             /** this function helps us assure that we're not missing any keys in the Enum list */
@@ -186,8 +187,15 @@ class IntegrationTest extends PHPUnit_Framework_TestCase
             $process_key( GameLeagueLeaders\Property::KEY_TWO_POINT_CONVERSION_RETURNS ); /** new */
             $process_key( GameLeagueLeaders\Property::KEY_FANTASY_POINTS_FAN_DUEL ); /** new */
             $process_key( GameLeagueLeaders\Property::KEY_FANTASY_POINTS_DRAFT_KINGS ); /** new */
+            $process_key( GameLeagueLeaders\Property::KEY_FIELD_GOALS_MADE_0_TO_19 );
+            $process_key( GameLeagueLeaders\Property::KEY_FIELD_GOALS_MADE_2O_TO_29);
+            $process_key( GameLeagueLeaders\Property::KEY_FIELD_GOALS_MADE_3O_TO_39);
+            $process_key( GameLeagueLeaders\Property::KEY_FIELD_GOALS_MADE_4O_TO_49);
+            $process_key( GameLeagueLeaders\Property::KEY_FIELD_GOALS_MADE_5O_PLUS);
+            $process_key( GameLeagueLeaders\Property::KEY_FANTASY_POINTS_YAHOO);
+            $process_key( GameLeagueLeaders\Property::KEY_YAHOO_SALARY);
 
-             if ( false == empty( $pGameLeagueLeaders[GameLeagueLeaders\Property::KEY_SCORING_DETAILS]) )
+            if ( false == empty( $pGameLeagueLeaders[GameLeagueLeaders\Property::KEY_SCORING_DETAILS]) )
             {
                 foreach ( $pGameLeagueLeaders[GameLeagueLeaders\Property::KEY_SCORING_DETAILS] as $scoring )
                 {
@@ -217,7 +225,7 @@ class IntegrationTest extends PHPUnit_Framework_TestCase
                 }
             }
 
-            $this->assertEmpty( $cloned_array );
+            $this->assertEmpty( $cloned_array ,"GameLeagueLeaders/Property");
         };
 
         $stats = $result->toArray();
@@ -231,6 +239,7 @@ class IntegrationTest extends PHPUnit_Framework_TestCase
      * Then: Expect a 401 response in the form of a Guzzle CommandClientException
      *
      * @group Integration
+     * @group AllTests
      * @small
      *
      * @expectedException \GuzzleHttp\Command\Exception\CommandClientException

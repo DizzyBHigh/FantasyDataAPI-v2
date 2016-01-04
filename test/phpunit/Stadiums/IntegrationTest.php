@@ -22,6 +22,7 @@ class IntegrationTest extends PHPUnit_Framework_TestCase
      * Then: Expect a 200 response with an array entries that contains the Stadiums details
      *
      * @group Integration
+     * @group AllTests
      * @medium
      */
     public function testSuccessfulResponse()
@@ -37,8 +38,8 @@ class IntegrationTest extends PHPUnit_Framework_TestCase
 
         $check_game = function ( $pStadium )
         {
-            /** we expect 7 stats */
-            $this->assertCount( 7, $pStadium );
+            /** we expect 9 stats */
+            $this->assertCount( 9, $pStadium );
 
             $cloned_array = $pStadium;
 
@@ -56,7 +57,10 @@ class IntegrationTest extends PHPUnit_Framework_TestCase
             $process_key( Stadium\Property::KEY_NAME );
             $process_key( Stadium\Property::KEY_PLAYING_SURFACE );
             $process_key( Stadium\Property::KEY_STADIUM_ID );
-            $process_key( Stadium\Property::KEY_STATE );            
+            $process_key( Stadium\Property::KEY_STATE );
+            $process_key( Stadium\Property::KEY_GEO_LONG );
+            $process_key( Stadium\Property::KEY_GEO_LAT );
+
 
             $this->assertEmpty( $cloned_array );
         };
@@ -72,6 +76,7 @@ class IntegrationTest extends PHPUnit_Framework_TestCase
      * Then: Expect a 401 response in the form of a Guzzle CommandClientException
      *
      * @group Integration
+     * @group AllTests
      * @small
      *
      * @expectedException \GuzzleHttp\Command\Exception\CommandClientException

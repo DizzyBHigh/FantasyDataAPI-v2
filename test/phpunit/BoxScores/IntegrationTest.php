@@ -176,8 +176,8 @@ class IntegrationTest extends PHPUnit_Framework_TestCase
                 /** Get The FantasyDefence Array */
                 $awayFantasyDefence = $pStats[BoxScore\Property::KEY_AWAY_FANTASY_DEFENSE];
 
-                /** we expect 64 keys in the array*/
-                $this->assertCount( 64, $awayFantasyDefence );
+                /** we expect 69 keys in the array*/
+                $this->assertCount( 69, $awayFantasyDefence );
 
                 /** Process the ScoringDetails */
                 if ( false == empty( $pStats[BoxScore\FantasyDefence\Property::KEY_SCORING_DETAILS]) )
@@ -235,7 +235,7 @@ class IntegrationTest extends PHPUnit_Framework_TestCase
                 $process_fantasy_defence_details( BoxScore\FantasyDefence\Property::KEY_ASSISTED_TACKLES);
                 $process_fantasy_defence_details( BoxScore\FantasyDefence\Property::KEY_SACKS);
                 $process_fantasy_defence_details( BoxScore\FantasyDefence\Property::KEY_SACK_YARDS);
-                $process_fantasy_defence_details( BoxScore\FantasyDefence\Property::KEY_PASSED_DEFENDED);
+                $process_fantasy_defence_details( BoxScore\FantasyDefence\Property::KEY_PASSES_DEFENDED);
                 $process_fantasy_defence_details( BoxScore\FantasyDefence\Property::KEY_FUMBLES_FORCED);
                 $process_fantasy_defence_details( BoxScore\FantasyDefence\Property::KEY_FUMBLES_RECOVERED);
                 $process_fantasy_defence_details( BoxScore\FantasyDefence\Property::KEY_FUMBLES_RETURN_YARDS);
@@ -285,10 +285,14 @@ class IntegrationTest extends PHPUnit_Framework_TestCase
                 $process_fantasy_defence_details( BoxScore\FantasyDefence\Property::KEY_TWO_POINT_CONVERSION_RETURNS );
                 $process_fantasy_defence_details( BoxScore\FantasyDefence\Property::KEY_FANTASY_POINTS_FAN_DUEL );
                 $process_fantasy_defence_details( BoxScore\FantasyDefence\Property::KEY_FANTASY_POINTS_DRAFT_KINGS );
+                $process_fantasy_defence_details( BoxScore\FantasyDefence\Property::KEY_OFFENSIVE_YARDS_ALLOWED);
+                $process_fantasy_defence_details( BoxScore\FantasyDefence\Property::KEY_YAHOO_SALARY );
+                $process_fantasy_defence_details( BoxScore\FantasyDefence\Property::KEY_PLAYER_ID );
+                $process_fantasy_defence_details( BoxScore\FantasyDefence\Property::KEY_FANTASY_POINTS_YAHOO );
+                $process_fantasy_defence_details( BoxScore\FantasyDefence\Property::KEY_HOME_OR_AWAY );
 
 
-
-               // var_dump($cloned_currentFantasyDefence);die();
+                //var_dump($cloned_currentFantasyDefence);die();
                 $this->assertEmpty( $cloned_currentFantasyDefence );
             }
 
@@ -298,8 +302,8 @@ class IntegrationTest extends PHPUnit_Framework_TestCase
                 /** Get The FantasyDefence Array */
                 $homeFantasyDefence = $pStats[BoxScore\Property::KEY_HOME_FANTASY_DEFENSE];
 
-                /** we expect 64 keys in the array*/
-                $this->assertCount( 64, $homeFantasyDefence );
+                /** we expect 69 keys in the array*/
+                $this->assertCount( 69, $homeFantasyDefence );
 
                 /** clone the array */
                 $cloned_currentFantasyDefence = $homeFantasyDefence;
@@ -357,7 +361,7 @@ class IntegrationTest extends PHPUnit_Framework_TestCase
                 $process_fantasy_defence_details( BoxScore\FantasyDefence\Property::KEY_ASSISTED_TACKLES);
                 $process_fantasy_defence_details( BoxScore\FantasyDefence\Property::KEY_SACKS);
                 $process_fantasy_defence_details( BoxScore\FantasyDefence\Property::KEY_SACK_YARDS);
-                $process_fantasy_defence_details( BoxScore\FantasyDefence\Property::KEY_PASSED_DEFENDED);
+                $process_fantasy_defence_details( BoxScore\FantasyDefence\Property::KEY_PASSES_DEFENDED);
                 $process_fantasy_defence_details( BoxScore\FantasyDefence\Property::KEY_FUMBLES_FORCED);
                 $process_fantasy_defence_details( BoxScore\FantasyDefence\Property::KEY_FUMBLES_RECOVERED);
                 $process_fantasy_defence_details( BoxScore\FantasyDefence\Property::KEY_FUMBLES_RETURN_YARDS);
@@ -407,6 +411,16 @@ class IntegrationTest extends PHPUnit_Framework_TestCase
                 $process_fantasy_defence_details( BoxScore\FantasyDefence\Property::KEY_TWO_POINT_CONVERSION_RETURNS );
                 $process_fantasy_defence_details( BoxScore\FantasyDefence\Property::KEY_FANTASY_POINTS_FAN_DUEL );
                 $process_fantasy_defence_details( BoxScore\FantasyDefence\Property::KEY_FANTASY_POINTS_DRAFT_KINGS );
+                $process_fantasy_defence_details( BoxScore\FantasyDefence\Property::KEY_YAHOO_SALARY );
+                $process_fantasy_defence_details( BoxScore\FantasyDefence\Property::KEY_PLAYER_ID );
+                $process_fantasy_defence_details( BoxScore\FantasyDefence\Property::KEY_HOME_OR_AWAY );
+                $process_fantasy_defence_details( BoxScore\FantasyDefence\Property::KEY_FANTASY_POINTS_YAHOO );
+                $process_fantasy_defence_details( BoxScore\FantasyDefence\Property::KEY_OFFENSIVE_YARDS_ALLOWED );
+
+
+
+
+
 
                 $this->assertEmpty( $cloned_currentFantasyDefence );
             }
@@ -416,8 +430,8 @@ class IntegrationTest extends PHPUnit_Framework_TestCase
 
                 $cloned_currentKPR = $currentKPR;
 
-                /** we expect 21 keys in KPR */
-                $this->assertCount( 21, $currentKPR );
+                /** we expect 22 keys in KPR */
+                $this->assertCount( 22, $currentKPR );
 
                 $process_kicking_details = function ( $pCurrentKPRKey ) use ( &$cloned_currentKPR )
                 {
@@ -446,7 +460,9 @@ class IntegrationTest extends PHPUnit_Framework_TestCase
                 $process_kicking_details( BoxScore\KickPuntReturns\Property::KEY_PUNT_RETURN_YARDS );
                 $process_kicking_details( BoxScore\KickPuntReturns\Property::KEY_PUNT_RETURN_YARDS_PER_ATTEMPT );
                 $process_kicking_details( BoxScore\KickPuntReturns\Property::KEY_PUNT_RETURNS );
+                $process_kicking_details( BoxScore\KickPuntReturns\Property::KEY_FUMBLES_LOST );
 
+                //var_dump($cloned_currentKPR);die();
                 $this->assertEmpty( $cloned_currentKPR );
             }
 
@@ -455,8 +471,8 @@ class IntegrationTest extends PHPUnit_Framework_TestCase
 
                 $cloned_currentKPR = $currentKPR;
 
-                /** we expect 21 keys in KPR */
-                $this->assertCount( 21, $currentKPR );
+                /** we expect 22 keys in KPR */
+                $this->assertCount( 22, $currentKPR );
 
                 $process_kicking_details = function ( $pCurrentKPRKey ) use ( &$cloned_currentKPR )
                 {
@@ -485,6 +501,7 @@ class IntegrationTest extends PHPUnit_Framework_TestCase
                 $process_kicking_details( BoxScore\KickPuntReturns\Property::KEY_PUNT_RETURN_YARDS );
                 $process_kicking_details( BoxScore\KickPuntReturns\Property::KEY_PUNT_RETURN_YARDS_PER_ATTEMPT );
                 $process_kicking_details( BoxScore\KickPuntReturns\Property::KEY_PUNT_RETURNS );
+                $process_kicking_details( BoxScore\KickPuntReturns\Property::KEY_FUMBLES_LOST );
 
                 $this->assertEmpty( $cloned_currentKPR );
             }
@@ -494,8 +511,8 @@ class IntegrationTest extends PHPUnit_Framework_TestCase
 
                 $cloned_currentKicking = $currentKicking;
 
-                /** we expect 17 keys in AWAY_KICKING */
-                $this->assertCount( 17, $currentKicking );
+                /** we expect 22 keys in AWAY_KICKING */
+                $this->assertCount( 22, $currentKicking );
 
                 $process_kicking_details = function ( $pCurrentKickingKey ) use ( &$cloned_currentKicking )
                 {
@@ -517,11 +534,19 @@ class IntegrationTest extends PHPUnit_Framework_TestCase
                 $process_kicking_details( BoxScore\Kicking\Property::KEY_EXTRA_POINTS_ATTEMPTED );
                 $process_kicking_details( BoxScore\Kicking\Property::KEY_EXTRA_POINTS_MADE );
                 $process_kicking_details( BoxScore\Kicking\Property::KEY_FIELD_GOAL_PERCENTAGE );
-                $process_kicking_details( BoxScore\Kicking\Property::KEY_KEY_FIELD_GOALS_ATTEMPTED );
-                $process_kicking_details( BoxScore\Kicking\Property::KEY_KEY_FIELD_GOALS_LONGEST_MADE );
-                $process_kicking_details( BoxScore\Kicking\Property::KEY_KEY_FIELD_GOALS_MADE );
+                $process_kicking_details( BoxScore\Kicking\Property::KEY_FIELD_GOALS_ATTEMPTED );
+                $process_kicking_details( BoxScore\Kicking\Property::KEY_FIELD_GOALS_LONGEST_MADE );
+                $process_kicking_details( BoxScore\Kicking\Property::KEY_FIELD_GOALS_MADE );
+                $process_kicking_details( BoxScore\Kicking\Property::KEY_FIELD_GOALS_MADE_0_19 );
+                $process_kicking_details( BoxScore\Kicking\Property::KEY_FIELD_GOALS_MADE_20_29 );
+                $process_kicking_details( BoxScore\Kicking\Property::KEY_FIELD_GOALS_MADE_30_39 );
+                $process_kicking_details( BoxScore\Kicking\Property::KEY_FIELD_GOALS_MADE_40_49 );
+                $process_kicking_details( BoxScore\Kicking\Property::KEY_FIELD_GOALS_MADE_50_PLUS );
 
 
+
+
+                //var_dump($cloned_currentKicking);die();
                 $this->assertEmpty( $cloned_currentKicking );
             }
 
@@ -530,8 +555,8 @@ class IntegrationTest extends PHPUnit_Framework_TestCase
 
                 $cloned_currentKicking = $currentKicking;
 
-                /** we expect 17 keys in AWAY_KICKING */
-                $this->assertCount( 17, $currentKicking );
+                /** we expect 22 keys in AWAY_KICKING */
+                $this->assertCount( 22, $currentKicking );
 
                 $process_kicking_details = function ( $pCurrentKickingKey ) use ( &$cloned_currentKicking )
                 {
@@ -553,9 +578,14 @@ class IntegrationTest extends PHPUnit_Framework_TestCase
                 $process_kicking_details( BoxScore\Kicking\Property::KEY_EXTRA_POINTS_ATTEMPTED );
                 $process_kicking_details( BoxScore\Kicking\Property::KEY_EXTRA_POINTS_MADE );
                 $process_kicking_details( BoxScore\Kicking\Property::KEY_FIELD_GOAL_PERCENTAGE );
-                $process_kicking_details( BoxScore\Kicking\Property::KEY_KEY_FIELD_GOALS_ATTEMPTED );
-                $process_kicking_details( BoxScore\Kicking\Property::KEY_KEY_FIELD_GOALS_LONGEST_MADE );
-                $process_kicking_details( BoxScore\Kicking\Property::KEY_KEY_FIELD_GOALS_MADE );
+                $process_kicking_details( BoxScore\Kicking\Property::KEY_FIELD_GOALS_ATTEMPTED );
+                $process_kicking_details( BoxScore\Kicking\Property::KEY_FIELD_GOALS_LONGEST_MADE );
+                $process_kicking_details( BoxScore\Kicking\Property::KEY_FIELD_GOALS_MADE );
+                $process_kicking_details( BoxScore\Kicking\Property::KEY_FIELD_GOALS_MADE_0_19 );
+                $process_kicking_details( BoxScore\Kicking\Property::KEY_FIELD_GOALS_MADE_20_29 );
+                $process_kicking_details( BoxScore\Kicking\Property::KEY_FIELD_GOALS_MADE_30_39 );
+                $process_kicking_details( BoxScore\Kicking\Property::KEY_FIELD_GOALS_MADE_40_49 );
+                $process_kicking_details( BoxScore\Kicking\Property::KEY_FIELD_GOALS_MADE_50_PLUS );
 
                 $this->assertEmpty( $cloned_currentKicking );
             }
@@ -1045,8 +1075,8 @@ class IntegrationTest extends PHPUnit_Framework_TestCase
                 /** Get The FantasyDefence Array */
                 $score = $pStats[BoxScore\Property::KEY_SCORE];
 
-                /** we expect 43 keys in the array*/
-                $this->assertCount( 43, $score );
+                /** we expect 52 keys in the array*/
+                $this->assertCount( 52, $score );
 
                 /** clone the array */
                 $cloned_score = $score;
@@ -1130,6 +1160,15 @@ class IntegrationTest extends PHPUnit_Framework_TestCase
                 $process_score( Score\Property::KEY_WEEK);
                 $process_score( Score\Property::KEY_YARD_LINE);
                 $process_score( Score\Property::KEY_YARD_LINE_TERRITORY);
+                $process_score( Score\Property::KEY_GEO_LAT);
+                $process_score( Score\Property::KEY_GEO_LONG);
+                $process_score( Score\Property::KEY_FORECAST_TEMP_LOW);
+                $process_score( Score\Property::KEY_FORECAST_TEMP_HIGH);
+                $process_score( Score\Property::KEY_FORECAST_DESCRIPTION);
+                $process_score( Score\Property::KEY_FORECAST_WIND_CHILL);
+                $process_score( Score\Property::KEY_FORECAST_WIND_SPEED);
+                $process_score( Score\Property::KEY_AWAY_TEAM_MONEY_LINE);
+                $process_score( Score\Property::KEY_HOME_TEAM_MONEY_LINE);
 
                 $this->assertEmpty( $cloned_score );
             }
@@ -1222,7 +1261,7 @@ class IntegrationTest extends PHPUnit_Framework_TestCase
      * When: API is queried for 2013REG, Week 17 BoxScores
      * Then: Expect a 401 response in the form of a Guzzle CommandClientException
      *
-     * @group Integration
+     * @group b
      * @small
      *
      * @expectedException \GuzzleHttp\Command\Exception\CommandClientException

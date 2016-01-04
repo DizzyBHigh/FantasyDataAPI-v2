@@ -23,6 +23,7 @@ class IntegrationTest extends PHPUnit_Framework_TestCase
      * Then: Expect a 200 response with an array entries that each contain PlayerGame and ScoringDetails info
      *
      * @group Integration
+     * @group AllTests
      * @medium
      */
     public function testSuccessfulResponse()
@@ -38,8 +39,8 @@ class IntegrationTest extends PHPUnit_Framework_TestCase
 
         $check_player_game = function ( $pFantasyDefense )
         {
-            /** we expect 64 stats */
-            $this->assertCount( 64, $pFantasyDefense );
+            /** we expect 69 stats */
+            $this->assertCount( 69, $pFantasyDefense );
 
             $cloned_array = $pFantasyDefense;
 
@@ -117,6 +118,12 @@ class IntegrationTest extends PHPUnit_Framework_TestCase
             $process_key( FantasyDefenseGame\Property::KEY_TWO_POINT_CONVERSION_RETURNS );
             $process_key( FantasyDefenseGame\Property::KEY_FANTASY_POINTS_FAN_DUEL );
             $process_key( FantasyDefenseGame\Property::KEY_FANTASY_POINTS_DRAFT_KINGS );
+            $process_key( FantasyDefenseGame\Property::KEY_OFFENSIVE_YARDS_ALLOWED );
+            $process_key( FantasyDefenseGame\Property::KEY_YAHOO_SALARY );
+            $process_key( FantasyDefenseGame\Property::KEY_PLAYER_ID );
+            $process_key( FantasyDefenseGame\Property::KEY_FANTASY_POINTS_YAHOO );
+            $process_key( FantasyDefenseGame\Property::KEY_HOME_OR_AWAY );
+
 
             if ( false == empty( $pFantasyDefense[FantasyDefenseGame\Property::KEY_SCORING_DETAILS]) )
             {
@@ -144,10 +151,12 @@ class IntegrationTest extends PHPUnit_Framework_TestCase
                     $process_scoring_details( ScoringDetails\Property::KEY_TEAM );
                     $process_scoring_details( ScoringDetails\Property::KEY_WEEK );
 
+                    //var_dump($cloned_scoring);die();
                     $this->assertEmpty( $cloned_scoring );
                 }
             }
 
+            //var_dump($cloned_array);die();
             $this->assertEmpty( $cloned_array );
         };
 
@@ -162,6 +171,7 @@ class IntegrationTest extends PHPUnit_Framework_TestCase
      * Then: Expect a 401 response in the form of a Guzzle CommandClientException
      *
      * @group Integration
+     * @group AllTests
      * @small
      *
      * @expectedException \GuzzleHttp\Command\Exception\CommandClientException

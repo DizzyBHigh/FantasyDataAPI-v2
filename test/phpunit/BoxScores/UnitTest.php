@@ -30,7 +30,7 @@ class UnitTest extends PHPUnit_Framework_TestCase
      * Set up our test fixture.
      *
      * Expect a service URL something like this:
-     *   http://api.nfldata.apiphany.com/developer/json/BoxScores/2013REG/17?key=000aaaa0-a00a-0000-0a0a-aa0a00000000
+     *   https://api.fantasydata.net/nfl/v2/JSON//BoxScores/2013REG/17
      */
     public static function setUpBeforeClass()
     {
@@ -63,7 +63,7 @@ class UnitTest extends PHPUnit_Framework_TestCase
     public function testFormatInURI()
     {
         /** key 4 should be the "format" based on URL structure
-            http://api.nfldata.apiphany.com/nfl/v2/JSON/BoxScores/2013REG/NE
+        https://api.fantasydata.net/nfl/v2/JSON//BoxScores/2013REG/NE
          */
         $this->assertArrayHasKey(5, static::$sUrlFragments);
         $this->assertEquals( static::$sUrlFragments[5], 'json');

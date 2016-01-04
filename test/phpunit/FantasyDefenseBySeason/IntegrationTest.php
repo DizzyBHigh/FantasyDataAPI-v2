@@ -23,6 +23,7 @@ class IntegrationTest extends PHPUnit_Framework_TestCase
      * Then: Expect a 200 response with an array entries that each contain PlayerGame and ScoringDetails info
      *
      * @group Integration
+     * @group AllTests
      * @medium
      */
     public function testSuccessfulResponse()
@@ -38,8 +39,8 @@ class IntegrationTest extends PHPUnit_Framework_TestCase
 
         $check_player_season = function ( $pFantasySeason )
         {
-            /** we expect 57 stats */
-            $this->assertCount( 57, $pFantasySeason );
+            /** we expect 60 stats */
+            $this->assertCount( 60, $pFantasySeason );
 
             $cloned_array = $pFantasySeason;
 
@@ -108,7 +109,9 @@ class IntegrationTest extends PHPUnit_Framework_TestCase
             $process_key( FantasyDefenseSeason\Property::KEY_TWO_POINT_CONVERSION_RETURNS );
             $process_key( FantasyDefenseSeason\Property::KEY_FANTASY_POINTS_FAN_DUEL );
             $process_key( FantasyDefenseSeason\Property::KEY_FANTASY_POINTS_DRAFT_KINGS );
-
+            $process_key( FantasyDefenseSeason\Property::KEY_OFFENSIVE_YARDS_ALLOWED );
+            $process_key( FantasyDefenseSeason\Property::KEY_PLAYER_ID );
+            $process_key( FantasyDefenseSeason\Property::KEY_FANTASY_POINTS_YAHOO );
 
             if ( false == empty( $pFantasySeason[FantasyDefenseSeason\Property::KEY_SCORING_DETAILS]) )
             {
@@ -139,7 +142,6 @@ class IntegrationTest extends PHPUnit_Framework_TestCase
                     $this->assertEmpty( $cloned_scoring );
                 }
             }
-
             $this->assertEmpty( $cloned_array );
         };
 
@@ -154,6 +156,7 @@ class IntegrationTest extends PHPUnit_Framework_TestCase
      * Then: Expect a 401 response in the form of a Guzzle CommandClientException
      *
      * @group Integration
+     * @group AllTests
      * @small
      *
      * @expectedException \GuzzleHttp\Command\Exception\CommandClientException

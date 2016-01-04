@@ -23,6 +23,7 @@ class IntegrationTest extends PHPUnit_Framework_TestCase
      * Then: Expect a 200 response with an array entries that each contain Team and Stadium info
      *
      * @group Integration
+     * @group AllTests
      * @small
      */
     public function test2014TeamsSuccessfulResponse()
@@ -41,8 +42,8 @@ class IntegrationTest extends PHPUnit_Framework_TestCase
 
         $check_team_keys = function ( $pTeam )
         {
-            /** we expect 22 stats */
-            $this->assertCount( 22, $pTeam );
+            /** we expect 23 stats */
+            $this->assertCount( 23, $pTeam );
 
             $cloned_array = $pTeam;
 
@@ -56,8 +57,8 @@ class IntegrationTest extends PHPUnit_Framework_TestCase
                 {
                     $pStadium = $pTeam[$pKey];
 
-                    /** we expect 7 keys */
-                    $this->assertCount( 7, $pStadium );
+                    /** we expect 9 keys */
+                    $this->assertCount( 9, $pStadium );
 
                     $cloned_stadium = $pStadium;
 
@@ -103,9 +104,11 @@ class IntegrationTest extends PHPUnit_Framework_TestCase
             /** ?? */
             $process_key( Teams\Property::KEY_PLAYER_ID );
             $process_key( Teams\Property::KEY_UPCOMING_SALARY );
+            $process_key( Teams\Property::KEY_UPCOMING_OPPONENT );
             $process_key( Teams\Property::KEY_UPCOMING_OPPONENT_RANK );
             $process_key( Teams\Property::KEY_UPCOMING_OPPONENT_POSITION_RANK );
 
+            //var_dump($cloned_array);die();
             $this->assertEmpty( $cloned_array );
         };
 
@@ -120,6 +123,7 @@ class IntegrationTest extends PHPUnit_Framework_TestCase
      * Then: Expect a 200 response with an array entries that each contain Team and Stadium info
      *
      * @group Integration
+     * @group AllTests
      * @small
      */
     public function testActiveTeamResponse()
@@ -138,8 +142,8 @@ class IntegrationTest extends PHPUnit_Framework_TestCase
 
         $check_team_keys = function ( $pTeam )
         {
-            /** we expect 22 stats */
-            $this->assertCount( 22, $pTeam );
+            /** we expect 23 stats */
+            $this->assertCount( 23, $pTeam );
 
             $cloned_array = $pTeam;
 
@@ -153,8 +157,8 @@ class IntegrationTest extends PHPUnit_Framework_TestCase
                 {
                     $pStadium = $pTeam[$pKey];
 
-                    /** we expect 7 keys */
-                    $this->assertCount( 7, $pStadium );
+                    /** we expect 9 keys */
+                    $this->assertCount( 9, $pStadium );
 
                     $cloned_stadium = $pStadium;
 
@@ -202,7 +206,9 @@ class IntegrationTest extends PHPUnit_Framework_TestCase
             $process_key( Teams\Property::KEY_UPCOMING_SALARY );
             $process_key( Teams\Property::KEY_UPCOMING_OPPONENT_RANK );
             $process_key( Teams\Property::KEY_UPCOMING_OPPONENT_POSITION_RANK );
+            $process_key( Teams\Property::KEY_UPCOMING_OPPONENT );
 
+            //var_dump($cloned_array);die();
             $this->assertEmpty( $cloned_array );
         };
 
@@ -217,6 +223,7 @@ class IntegrationTest extends PHPUnit_Framework_TestCase
      * Then: Expect a 401 response in the form of a Guzzle CommandClientException
      *
      * @group Integration
+     * @group AllTests
      * @small
      *
      * @expectedException \GuzzleHttp\Command\Exception\CommandClientException

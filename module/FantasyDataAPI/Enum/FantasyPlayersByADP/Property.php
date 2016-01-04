@@ -21,4 +21,7 @@ class Property
     const KEY_POSITION = 'Position';
     const KEY_PROJECTED_FANTASY_POINTS = 'ProjectedFantasyPoints';
     const KEY_TEAM = 'Team';
+    const KEY_AUCTION_VALUE = 'AuctionValue';
+    const KEY_AUCTION_VALUE_PPR = 'AuctionValuePPR';
+
 }

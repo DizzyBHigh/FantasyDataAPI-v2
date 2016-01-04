@@ -23,6 +23,7 @@ class PlayerGameStatsByTeamTest extends PHPUnit_Framework_TestCase
      * Then: Expect a 200 response with an array entries that each contain Players, PlayerNews and PlayerSeason info
      *
      * @group Integration
+     * @group AllTests
      * @medium
      */
     public function testSuccessfulResponse()
@@ -41,8 +42,8 @@ class PlayerGameStatsByTeamTest extends PHPUnit_Framework_TestCase
 
         $check_player_game = function ( $pPlayerGame )
         {
-            /** we expect 137 stats */
-            $this->assertCount( 137, $pPlayerGame );
+            /** we expect 144 stats */
+            $this->assertCount( 144, $pPlayerGame );
 
             $cloned_array = $pPlayerGame;
 
@@ -192,6 +193,13 @@ class PlayerGameStatsByTeamTest extends PHPUnit_Framework_TestCase
             $process_key( PlayerGame\Property::KEY_TWO_POINT_CONVERSION_RETURNS);
             $process_key( PlayerGame\Property::KEY_FANTASY_POINTS_FAN_DUEL);
             $process_key( PlayerGame\Property::KEY_FANTASY_POINTS_DRAFT_KINGS);
+            $process_key( PlayerGame\Property::KEY_FIELD_GOALS_MADE_0_TO_19 );
+            $process_key( PlayerGame\Property::KEY_FIELD_GOALS_MADE_2O_TO_29);
+            $process_key( PlayerGame\Property::KEY_FIELD_GOALS_MADE_3O_TO_39);
+            $process_key( PlayerGame\Property::KEY_FIELD_GOALS_MADE_4O_TO_49);
+            $process_key( PlayerGame\Property::KEY_FIELD_GOALS_MADE_5O_PLUS);
+            $process_key( PlayerGame\Property::KEY_FANTASY_POINTS_YAHOO);
+            $process_key( PlayerGame\Property::KEY_YAHOO_SALARY);
 
 
 
@@ -240,6 +248,7 @@ class PlayerGameStatsByTeamTest extends PHPUnit_Framework_TestCase
      * Then: Expect a 401 response in the form of a Guzzle CommandClientException
      *
      * @group Integration
+     * @group AllTests
      * @small
      *
      * @expectedException \GuzzleHttp\Command\Exception\CommandClientException

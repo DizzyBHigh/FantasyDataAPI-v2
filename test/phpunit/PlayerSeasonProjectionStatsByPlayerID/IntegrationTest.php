@@ -23,6 +23,7 @@ class PlayerSeasonProjectionStatsByPlayerIDTest extends PHPUnit_Framework_TestCa
      * Then: Expect a 200 response with an array entries that each contain PlayerSeason and ScoringDetails
      *
      * @group Integration
+     * @group AllTests
      * @medium
      */
     public function testSuccessfulResponse()
@@ -41,8 +42,8 @@ class PlayerSeasonProjectionStatsByPlayerIDTest extends PHPUnit_Framework_TestCa
 
         $check_player_season = function ( $pPlayerSeason )
         {
-            /** we expect 127 stats */
-            $this->assertCount( 127, $pPlayerSeason );
+            /** we expect 133 stats */
+            $this->assertCount( 133, $pPlayerSeason );
 
             $cloned_array = $pPlayerSeason;
 
@@ -183,6 +184,13 @@ class PlayerSeasonProjectionStatsByPlayerIDTest extends PHPUnit_Framework_TestCa
             $process_key( PlayerSeason\Property::KEY_FANTASY_POINTS_FAN_DUEL);
             $process_key( PlayerSeason\Property::KEY_FANTASY_POINTS_DRAFT_KINGS);
 
+            $process_key( PlayerSeason\Property::KEY_FIELD_GOALS_MADE_0_TO_19 );
+            $process_key( PlayerSeason\Property::KEY_FIELD_GOALS_MADE_2O_TO_29);
+            $process_key( PlayerSeason\Property::KEY_FIELD_GOALS_MADE_3O_TO_39);
+            $process_key( PlayerSeason\Property::KEY_FIELD_GOALS_MADE_4O_TO_49);
+            $process_key( PlayerSeason\Property::KEY_FIELD_GOALS_MADE_5O_PLUS);
+            $process_key( PlayerSeason\Property::KEY_FANTASY_POINTS_YAHOO);
+
 
             if ( false == empty( $pPlayerSeason[PlayerSeason\Property::KEY_SCORING_DETAILS]) )
             {
@@ -227,6 +235,7 @@ class PlayerSeasonProjectionStatsByPlayerIDTest extends PHPUnit_Framework_TestCa
      * Then: Expect a 401 response in the form of a Guzzle CommandClientException
      *
      * @group Integration
+     * @group AllTests
      * @small
      *
      * @expectedException \GuzzleHttp\Command\Exception\CommandClientException

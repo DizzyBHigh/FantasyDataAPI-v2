@@ -25,7 +25,12 @@ class Property
     const KEY_EXTRA_POINTS_ATTEMPTED = 'ExtraPointsAttempted';
     const KEY_EXTRA_POINTS_MADE = 'ExtraPointsMade';
     const KEY_FIELD_GOAL_PERCENTAGE = 'FieldGoalPercentage';
-    const KEY_KEY_FIELD_GOALS_ATTEMPTED = 'FieldGoalsAttempted';
-    const KEY_KEY_FIELD_GOALS_LONGEST_MADE = 'FieldGoalsLongestMade';
-    const KEY_KEY_FIELD_GOALS_MADE = 'FieldGoalsMade';
+    const KEY_FIELD_GOALS_ATTEMPTED = 'FieldGoalsAttempted';
+    const KEY_FIELD_GOALS_LONGEST_MADE = 'FieldGoalsLongestMade';
+    const KEY_FIELD_GOALS_MADE = 'FieldGoalsMade';
+    const KEY_FIELD_GOALS_MADE_0_19 = 'FieldGoalsMade0to19';
+    const KEY_FIELD_GOALS_MADE_20_29 = 'FieldGoalsMade20to29';
+    const KEY_FIELD_GOALS_MADE_30_39 = 'FieldGoalsMade30to39';
+    const KEY_FIELD_GOALS_MADE_40_49 = 'FieldGoalsMade40to49';
+    const KEY_FIELD_GOALS_MADE_50_PLUS = 'FieldGoalsMade50Plus';
 }

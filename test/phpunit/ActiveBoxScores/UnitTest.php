@@ -61,6 +61,7 @@ class UnitTest extends PHPUnit_Framework_TestCase
      * Then: Expect that the json format is placed in the URI
      *
      * @group Unit
+     * @group UgTests
      * @small
      */
     public function testFormatInURI()
@@ -78,6 +79,7 @@ class UnitTest extends PHPUnit_Framework_TestCase
      * Then: Expect that the BoxScore resource is placed in the URI
      *
      * @group Unit
+     * @group UgTests
      * @small
      */
     public function testResourceInURI()
@@ -95,6 +97,7 @@ class UnitTest extends PHPUnit_Framework_TestCase
      * Then: Expect a 200 response
      *
      * @group Unit
+     * @group UgTests
      * @small
      */
     public function testSuccessfulResponse()

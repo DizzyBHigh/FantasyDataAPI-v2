@@ -23,6 +23,7 @@ class IntegrationTest extends PHPUnit_Framework_TestCase
      * Then: Expect a 200 response with an array entries that the PlayerGameProjectionStatsByTeam details
      *
      * @group Integration
+     * @group AllTests
      * @medium
      */
     public function testSuccessfulResponse()
@@ -38,8 +39,8 @@ class IntegrationTest extends PHPUnit_Framework_TestCase
 
         $check_player_game = function ( $pPlayerGame )
         {
-            /** we expect 137 stats */
-            $this->assertCount( 137, $pPlayerGame );
+            /** we expect 144 stats */
+            $this->assertCount( 144, $pPlayerGame );
 
             $cloned_array = $pPlayerGame;
 
@@ -189,6 +190,13 @@ class IntegrationTest extends PHPUnit_Framework_TestCase
             $process_key( PlayerGame\Property::KEY_TWO_POINT_CONVERSION_RETURNS);
             $process_key( PlayerGame\Property::KEY_FANTASY_POINTS_FAN_DUEL);
             $process_key( PlayerGame\Property::KEY_FANTASY_POINTS_DRAFT_KINGS);
+            $process_key( PlayerGame\Property::KEY_FIELD_GOALS_MADE_0_TO_19 );
+            $process_key( PlayerGame\Property::KEY_FIELD_GOALS_MADE_2O_TO_29);
+            $process_key( PlayerGame\Property::KEY_FIELD_GOALS_MADE_3O_TO_39);
+            $process_key( PlayerGame\Property::KEY_FIELD_GOALS_MADE_4O_TO_49);
+            $process_key( PlayerGame\Property::KEY_FIELD_GOALS_MADE_5O_PLUS);
+            $process_key( PlayerGame\Property::KEY_FANTASY_POINTS_YAHOO);
+            $process_key( PlayerGame\Property::KEY_YAHOO_SALARY);
 
 
             if ( false == empty( $pPlayerGame[PlayerGame\Property::KEY_SCORING_DETAILS]) )
@@ -221,6 +229,7 @@ class IntegrationTest extends PHPUnit_Framework_TestCase
                 }
             }
 
+            //var_dump($cloned_array);
             $this->assertEmpty( $cloned_array );
         };
 
@@ -234,6 +243,7 @@ class IntegrationTest extends PHPUnit_Framework_TestCase
      * Then: Expect a 401 response in the form of a Guzzle CommandClientException
      *
      * @group Integration
+     * @group AllTests
      * @small
      *
      * @expectedException \GuzzleHttp\Command\Exception\CommandClientException

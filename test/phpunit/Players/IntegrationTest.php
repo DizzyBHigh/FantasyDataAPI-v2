@@ -24,6 +24,7 @@ class PlayersTest extends PHPUnit_Framework_TestCase
      * Then: Expect a 200 response with an array entries that each contain Players
      *
      * @group Integration
+     * @group AllTests
      * @medium
      */
     public function testActivePlayersSuccessfulResponse()
@@ -42,8 +43,8 @@ class PlayersTest extends PHPUnit_Framework_TestCase
 
         $check_players = function ( $pPlayers )
         {
-            /** we expect 41 stats */
-            $this->assertCount( 41, $pPlayers );
+            /** we expect 42 stats */
+            $this->assertCount( 42, $pPlayers );
 
             $cloned_array = $pPlayers;
 
@@ -99,7 +100,7 @@ class PlayersTest extends PHPUnit_Framework_TestCase
             $process_key( Players\Property::KEY_UPCOMING_OPPONENT_RANK );
             $process_key( Players\Property::KEY_WEIGHT );
             $process_key( Players\Property::KEY_UPCOMING_SALARY );
-
+            $process_key( Players\Property::KEY_FANTASY_ALARM_PLAYER_ID);
             $this->assertEmpty( $cloned_array );
         };
 
@@ -114,6 +115,7 @@ class PlayersTest extends PHPUnit_Framework_TestCase
      * Then: Expect a 401 response in the form of a Guzzle CommandClientException
      *
      * @group Integration
+     * @group AllTests
      * @small
      *
      * @expectedException \GuzzleHttp\Command\Exception\CommandClientException

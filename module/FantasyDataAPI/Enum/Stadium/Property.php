@@ -18,4 +18,6 @@ class Property
     const KEY_PLAYING_SURFACE = 'PlayingSurface';
     const KEY_STADIUM_ID = 'StadiumID';
     const KEY_STATE = 'State';
+    const KEY_GEO_LAT = 'GeoLat';
+    const KEY_GEO_LONG = 'GeoLong';
 }

@@ -53,4 +53,13 @@ class Property
     const KEY_WEEK = 'Week';
     const KEY_YARD_LINE = 'YardLine';
     const KEY_YARD_LINE_TERRITORY = 'YardLineTerritory';
+    const KEY_GEO_LAT = 'GeoLat';
+    const KEY_GEO_LONG = 'GeoLong';
+    const KEY_FORECAST_TEMP_LOW = 'ForecastTempLow';
+    const KEY_FORECAST_TEMP_HIGH = 'ForecastTempHigh';
+    const KEY_FORECAST_DESCRIPTION = 'ForecastDescription';
+    const KEY_FORECAST_WIND_CHILL = 'ForecastWindChill';
+    const KEY_FORECAST_WIND_SPEED = 'ForecastWindSpeed';
+    const KEY_AWAY_TEAM_MONEY_LINE = 'AwayTeamMoneyLine';
+    const KEY_HOME_TEAM_MONEY_LINE = 'HomeTeamMoneyLine';
 }

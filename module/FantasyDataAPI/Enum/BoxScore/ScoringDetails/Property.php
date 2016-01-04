@@ -21,4 +21,8 @@ class Property
     const KEY_LENGTH = 'Length';
     const KEY_SCORING_DETAIL_ID = 'ScoringDetailID';
     const KEY_PLAYER_GAME_ID = 'PlayerGameID';
+    const KEY_OFFENSIVE_YARDS_ALLOWED = "OffensiveYardsAllowed";
+    const KEY_YAHOO_SALARY = "YahooSalary";
+    const KEY_FANTASY_POINTS_YAHOO = "FantasyPointsYahoo";
+    const KEY_HOME_OR_AWAY = "HomeOrAway";
 }

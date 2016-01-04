@@ -148,5 +148,11 @@ class Property
     const KEY_TWO_POINT_CONVERSION_RETURNS = "TwoPointConversionReturns";
     const KEY_FANTASY_POINTS_FAN_DUEL = "FantasyPointsFanDuel";
     const KEY_FANTASY_POINTS_DRAFT_KINGS = "FantasyPointsDraftKings";
-
+    const KEY_FIELD_GOALS_MADE_0_TO_19 = "FieldGoalsMade0to19";
+    const KEY_FIELD_GOALS_MADE_2O_TO_29 = "FieldGoalsMade20to29";
+    const KEY_FIELD_GOALS_MADE_3O_TO_39 = "FieldGoalsMade30to39";
+    const KEY_FIELD_GOALS_MADE_4O_TO_49 = "FieldGoalsMade40to49";
+    const KEY_FIELD_GOALS_MADE_5O_PLUS = "FieldGoalsMade50Plus";
+    const KEY_FANTASY_POINTS_YAHOO = "FantasyPointsYahoo";
+    const KEY_YAHOO_SALARY= "YahooSalary";
 }

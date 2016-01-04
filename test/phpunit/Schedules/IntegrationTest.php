@@ -23,6 +23,7 @@ class IntegrationTest extends PHPUnit_Framework_TestCase
      * Then: Expect a 200 response with an array entries that each contain Schedule and Stadium info
      *
      * @group Integration
+     * @group AllTests
      * @medium
      */
     public function testSuccessfulResponse()
@@ -41,37 +42,43 @@ class IntegrationTest extends PHPUnit_Framework_TestCase
 
         $check_team_keys = function ( $pSchedule )
         {
-            /** we expect 12 keys */
-            $this->assertCount( 12, $pSchedule );
+            /** we expect 21 keys */
+            $this->assertCount( 21, $pSchedule );
+
+            $cloned_array = $pSchedule;
+
+            /** this function helps us assure that we're not missing any keys in the Enum list */
+            $process_key = function ( $pKey ) use ( $pSchedule, &$cloned_array )
+            {
+                $this->assertArrayHasKey( $pKey, $pSchedule );
+                unset( $cloned_array[$pKey] );
+            };
 
             /** test all the keys */
-            $this->assertArrayHasKey( Schedule\Property::KEY_AWAY_TEAM, $pSchedule );
-            $this->assertArrayHasKey( Schedule\Property::KEY_CHANNEL, $pSchedule );
-            $this->assertArrayHasKey( Schedule\Property::KEY_DATE, $pSchedule );
-            $this->assertArrayHasKey( Schedule\Property::KEY_GAME_KEY, $pSchedule );
-            $this->assertArrayHasKey( Schedule\Property::KEY_HOME_TEAM, $pSchedule );
-            $this->assertArrayHasKey( Schedule\Property::KEY_OVER_UNDER, $pSchedule );
-            $this->assertArrayHasKey( Schedule\Property::KEY_POINT_SPREAD, $pSchedule );
-            $this->assertArrayHasKey( Schedule\Property::KEY_SEASON, $pSchedule );
-            $this->assertArrayHasKey( Schedule\Property::KEY_SEASON_TYPE, $pSchedule );
-            $this->assertArrayHasKey( Schedule\Property::KEY_STADIUM_DETAILS, $pSchedule );
-            $this->assertArrayHasKey( Schedule\Property::KEY_STADIUM_ID, $pSchedule );
-            $this->assertArrayHasKey( Schedule\Property::KEY_WEEK, $pSchedule );
+            $process_key( Schedule\Property::KEY_AWAY_TEAM, $pSchedule );
+            $process_key( Schedule\Property::KEY_CHANNEL, $pSchedule );
+            $process_key( Schedule\Property::KEY_DATE, $pSchedule );
+            $process_key( Schedule\Property::KEY_GAME_KEY, $pSchedule );
+            $process_key( Schedule\Property::KEY_HOME_TEAM, $pSchedule );
+            $process_key( Schedule\Property::KEY_OVER_UNDER, $pSchedule );
+            $process_key( Schedule\Property::KEY_POINT_SPREAD, $pSchedule );
+            $process_key( Schedule\Property::KEY_SEASON, $pSchedule );
+            $process_key( Schedule\Property::KEY_SEASON_TYPE, $pSchedule );
+            $process_key( Schedule\Property::KEY_STADIUM_DETAILS, $pSchedule );
+            $process_key( Schedule\Property::KEY_STADIUM_ID, $pSchedule );
+            $process_key( Schedule\Property::KEY_WEEK, $pSchedule );
+            $process_key( Schedule\Property::KEY_GEO_LAT, $pSchedule );
+            $process_key( Schedule\Property::KEY_GEO_LONG, $pSchedule );
+            $process_key( Schedule\Property::KEY_FORECAST_TEMP_LOW, $pSchedule );
+            $process_key( Schedule\Property::KEY_FORECAST_TEMP_HIGH, $pSchedule );
+            $process_key( Schedule\Property::KEY_FORECAST_DESCRIPTION, $pSchedule );
+            $process_key( Schedule\Property::KEY_FORECAST_WIND_CHILL, $pSchedule );
+            $process_key( Schedule\Property::KEY_FORECAST_WIND_SPEED, $pSchedule );
+            $process_key( Schedule\Property::KEY_AWAY_TEAM_MONEY_LINE, $pSchedule );
+            $process_key( Schedule\Property::KEY_HOME_TEAM_MONEY_LINE, $pSchedule );
 
-            if ( 'BYE' != $pSchedule[Schedule\Property::KEY_AWAY_TEAM] )
-            {
-                /** we expect 7 keys */
-                $this->assertCount( 7, $pSchedule[Schedule\Property::KEY_STADIUM_DETAILS] );
-
-                /** test all the properties */
-                $this->assertArrayHasKey( Stadium\Property::KEY_CAPACITY, $pSchedule[Schedule\Property::KEY_STADIUM_DETAILS] );
-                $this->assertArrayHasKey( Stadium\Property::KEY_CITY, $pSchedule[Schedule\Property::KEY_STADIUM_DETAILS] );
-                $this->assertArrayHasKey( Stadium\Property::KEY_COUNTRY, $pSchedule[Schedule\Property::KEY_STADIUM_DETAILS] );
-                $this->assertArrayHasKey( Stadium\Property::KEY_NAME, $pSchedule[Schedule\Property::KEY_STADIUM_DETAILS] );
-                $this->assertArrayHasKey( Stadium\Property::KEY_PLAYING_SURFACE, $pSchedule[Schedule\Property::KEY_STADIUM_DETAILS] );
-                $this->assertArrayHasKey( Stadium\Property::KEY_STADIUM_ID, $pSchedule[Schedule\Property::KEY_STADIUM_DETAILS] );
-                $this->assertArrayHasKey( Stadium\Property::KEY_STATE, $pSchedule[Schedule\Property::KEY_STADIUM_DETAILS] );
-            }
+            //var_dump($cloned_array);
+            $this->assertEmpty( $cloned_array );
         };
 
         $schedules = $result->toArray();
@@ -85,6 +92,7 @@ class IntegrationTest extends PHPUnit_Framework_TestCase
      * Then: Expect a 401 response in the form of a Guzzle CommandClientException
      *
      * @group Integration
+     * @group AllTests
      * @small
      *
      * @expectedException \GuzzleHttp\Command\Exception\CommandClientException

@@ -56,5 +56,6 @@ class Property
     const KEY_INJURY_STATUS = 'InjuryStatus';
     const KEY_LATEST_NEWS = 'LatestNews';
     const KEY_PLAYER_SEASON = 'PlayerSeason';
+    const KEY_FANTASY_ALARM_PLAYER_ID = "FantasyAlarmPlayerID";
 
 }

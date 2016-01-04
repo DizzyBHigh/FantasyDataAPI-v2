@@ -267,8 +267,8 @@ class GameStatsBySeasonTest extends PHPUnit_Framework_TestCase
             {
                 $cloned_stadium = $pGame[GameStatsBySeason\Property::KEY_STADIUM_DETAILS];
 
-                /** we expect 7 keys */
-                $this->assertCount( 7, $cloned_stadium );
+                /** we expect 9 keys */
+                $this->assertCount( 9, $cloned_stadium );
 
                 $process_stadium_details = function ( $pStadiumDetails ) use ( &$cloned_stadium )
                 {
@@ -283,6 +283,8 @@ class GameStatsBySeasonTest extends PHPUnit_Framework_TestCase
                 $process_stadium_details( Stadium\Property::KEY_PLAYING_SURFACE );
                 $process_stadium_details( Stadium\Property::KEY_STADIUM_ID );
                 $process_stadium_details( Stadium\Property::KEY_STATE );
+                $process_stadium_details( Stadium\Property::KEY_GEO_LAT );
+                $process_stadium_details( Stadium\Property::KEY_GEO_LONG );
 
                 $this->assertEmpty( $cloned_stadium );
             }
