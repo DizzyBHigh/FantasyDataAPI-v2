@@ -29,7 +29,7 @@ class IntegrationTest extends PHPUnit_Framework_TestCase
         $client = new DebugClient($_SERVER['FANTASY_DATA_API_KEY']);
 
         /** @var \GuzzleHttp\Command\Model $result */
-        $result = $client->DailyFantasyPlayers(['Date' => '2014-SEP']);
+        $result = $client->DailyFantasyPlayers(['Date' => '2015-SEP-22']);
 
         $response = $client->mHistory->getLastResponse();
 
@@ -37,8 +37,8 @@ class IntegrationTest extends PHPUnit_Framework_TestCase
 
         $check_game = function ( $pStadium )
         {
-            /** we expect 15 stats */
-            $this->assertCount( 15, $pStadium );
+            /** we expect 18 stats */
+            $this->assertCount( 18, $pStadium );
 
             $cloned_array = $pStadium;
 
@@ -65,6 +65,9 @@ class IntegrationTest extends PHPUnit_Framework_TestCase
             $process_key( DailyFantasyPlayers\Property::KEY_STATUS );
             $process_key( DailyFantasyPlayers\Property::KEY_STATUS_CODE );
             $process_key( DailyFantasyPlayers\Property::KEY_STATUS_COLOR );
+            $process_key( DailyFantasyPlayers\Property::KEY_FAN_DUEL_SALARY );
+            $process_key( DailyFantasyPlayers\Property::KEY_DRAFT_KINGS_SALARY );
+            $process_key( DailyFantasyPlayers\Property::KEY_YAHOO_SALARY );
 
             $this->assertEmpty( $cloned_array );
         };

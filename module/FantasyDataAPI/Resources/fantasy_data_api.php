@@ -9,7 +9,7 @@
 $resources = [];
 //$resources['baseUrl'] = 'http://api.nfldata.apiphany.com/{Subscription}/{Format}/';
 /** Use New V2 Base URL */
-$resources['baseUrl'] = 'http://http://api.fantasydata.net//nfl/v2/{Format}/';
+$resources['baseUrl'] = 'http://api.fantasydata.net/nfl/v2/{Format}/';
 
 /**
  * Action: Check If Games In Progress

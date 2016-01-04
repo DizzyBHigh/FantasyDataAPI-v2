@@ -24,7 +24,7 @@ class Property
     const KEY_ASSISTED_TACKLES = 'AssistedTackles';
     const KEY_SACKS = 'Sacks';
     const KEY_SACK_YARDS = 'SackYards';
-    const KEY_PASSED_DEFENDED = 'PassesDefended';
+    const KEY_PASSES_DEFENDED = 'PassesDefended';
     const KEY_FUMBLES_FORCED = 'FumblesForced';
     const KEY_FUMBLES_RECOVERED = 'FumblesRecovered';
     const KEY_FUMBLES_RETURN_YARDS = 'FumbleReturnYards';
@@ -74,5 +74,7 @@ class Property
     const KEY_TWO_POINT_CONVERSION_RETURNS = "TwoPointConversionReturns";
     const KEY_FANTASY_POINTS_FAN_DUEL = "FantasyPointsFanDuel";
     const KEY_FANTASY_POINTS_DRAFT_KINGS = "FantasyPointsDraftKings";
-
+    const KEY_OFFENSIVE_YARDS_ALLOWED = "OffensiveYardsAllowed";
+    const KEY_YAHOO_SALARY = "YahooSalary";
+    const KEY_PLAYER_ID = "PlayerID";
 }

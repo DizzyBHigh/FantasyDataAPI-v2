@@ -26,4 +26,8 @@ class Property
     const KEY_STATUS = 'Status';
     const KEY_STATUS_CODE = 'StatusCode';
     const KEY_STATUS_COLOR = 'StatusColor';
+    const KEY_FAN_DUEL_SALARY = 'FanDuelSalary';
+    const KEY_DRAFT_KINGS_SALARY = 'DraftKingsSalary';
+    const KEY_YAHOO_SALARY = 'YahooSalary';
+
 }

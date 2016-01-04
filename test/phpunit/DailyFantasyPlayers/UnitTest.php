@@ -37,7 +37,7 @@ class UnitTest extends PHPUnit_Framework_TestCase
         static::$sClient = new MockClient($_SERVER['FANTASY_DATA_API_KEY']);
 
         /** \GuzzleHttp\Command\Model */
-        static::$sClient->DailyFantasyPlayers(['Date' => '2014-SEP']);
+        static::$sClient->DailyFantasyPlayers(['Date' => '2014-SEP-22']);
 
         static::$sResponse = static::$sClient->mHistory->getLastResponse();
         static::$sEffectiveUrl = static::$sResponse->getEffectiveUrl();
@@ -62,7 +62,7 @@ class UnitTest extends PHPUnit_Framework_TestCase
      */
     public function testFormatInURI()
     {
-        /** key 4 should be the "format" based on URL structure */
+        /** key 5 should be the "format" based on URL structure */
         $this->assertArrayHasKey(5, static::$sUrlFragments);
         $this->assertEquals( static::$sUrlFragments[5], 'json');
     }
@@ -77,7 +77,7 @@ class UnitTest extends PHPUnit_Framework_TestCase
      */
     public function testResourceInURI()
     {
-        /** key 5 should be the "resource" based on URL structure */
+        /** key 6 should be the "resource" based on URL structure */
         $this->assertArrayHasKey(6, static::$sUrlFragments);
 
         list($resource) = explode('?', static::$sUrlFragments[6]);

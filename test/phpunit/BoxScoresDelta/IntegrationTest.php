@@ -24,7 +24,7 @@ class IntegrationTest extends PHPUnit_Framework_TestCase
      * When: API is queried for 2013REG, Week 17 BoxScores
      * Then: Expect a 200 response with an array entries that contains the BoxScores details
      *
-     * @group Integration
+     * @group Ug
      * @medium
      */
     public function testSuccessfulResponse()
@@ -176,8 +176,8 @@ class IntegrationTest extends PHPUnit_Framework_TestCase
                 /** Get The FantasyDefence Array */
                 $awayFantasyDefence = $pStats[BoxScore\Property::KEY_AWAY_FANTASY_DEFENSE];
 
-                /** we expect 64 keys in the array*/
-                $this->assertCount( 64, $awayFantasyDefence );
+                /** we expect 67 keys in the array*/
+                $this->assertCount( 67, $awayFantasyDefence );
 
                 /** Process the ScoringDetails */
                 if ( false == empty( $pStats[BoxScore\FantasyDefence\Property::KEY_SCORING_DETAILS]) )
@@ -235,7 +235,7 @@ class IntegrationTest extends PHPUnit_Framework_TestCase
                 $process_fantasy_defence_details( BoxScore\FantasyDefence\Property::KEY_ASSISTED_TACKLES);
                 $process_fantasy_defence_details( BoxScore\FantasyDefence\Property::KEY_SACKS);
                 $process_fantasy_defence_details( BoxScore\FantasyDefence\Property::KEY_SACK_YARDS);
-                $process_fantasy_defence_details( BoxScore\FantasyDefence\Property::KEY_PASSED_DEFENDED);
+                $process_fantasy_defence_details( BoxScore\FantasyDefence\Property::KEY_PASSES_DEFENDED);
                 $process_fantasy_defence_details( BoxScore\FantasyDefence\Property::KEY_FUMBLES_FORCED);
                 $process_fantasy_defence_details( BoxScore\FantasyDefence\Property::KEY_FUMBLES_RECOVERED);
                 $process_fantasy_defence_details( BoxScore\FantasyDefence\Property::KEY_FUMBLES_RETURN_YARDS);
@@ -282,13 +282,14 @@ class IntegrationTest extends PHPUnit_Framework_TestCase
                 $process_fantasy_defence_details( BoxScore\FantasyDefence\Property::KEY_DRAFT_KINGS_SALARY);
                 $process_fantasy_defence_details( BoxScore\FantasyDefence\Property::KEY_FANTASY_DATA_SALARY);
                 $process_fantasy_defence_details( BoxScore\FantasyDefence\Property::KEY_VICTIV_SALARY);
-                $process_fantasy_defence_details( BoxScore\FantasyDefence\Property::KEY_TWO_POINT_CONVERSION_RETURNS );
-                $process_fantasy_defence_details( BoxScore\FantasyDefence\Property::KEY_FANTASY_POINTS_FAN_DUEL );
-                $process_fantasy_defence_details( BoxScore\FantasyDefence\Property::KEY_FANTASY_POINTS_DRAFT_KINGS );
+                $process_fantasy_defence_details( BoxScore\FantasyDefence\Property::KEY_TWO_POINT_CONVERSION_RETURNS);
+                $process_fantasy_defence_details( BoxScore\FantasyDefence\Property::KEY_FANTASY_POINTS_FAN_DUEL);
+                $process_fantasy_defence_details( BoxScore\FantasyDefence\Property::KEY_FANTASY_POINTS_DRAFT_KINGS);
+                $process_fantasy_defence_details( BoxScore\FantasyDefence\Property::KEY_OFFENSIVE_YARDS_ALLOWED);
+                $process_fantasy_defence_details( BoxScore\FantasyDefence\Property::KEY_YAHOO_SALARY);
+                $process_fantasy_defence_details( BoxScore\FantasyDefence\Property::KEY_PLAYER_ID);
 
-
-
-               // var_dump($cloned_currentFantasyDefence);die();
+               //var_dump($cloned_currentFantasyDefence);die();
                 $this->assertEmpty( $cloned_currentFantasyDefence );
             }
 
@@ -298,8 +299,8 @@ class IntegrationTest extends PHPUnit_Framework_TestCase
                 /** Get The FantasyDefence Array */
                 $homeFantasyDefence = $pStats[BoxScore\Property::KEY_HOME_FANTASY_DEFENSE];
 
-                /** we expect 64 keys in the array*/
-                $this->assertCount( 64, $homeFantasyDefence );
+                /** we expect 67 keys in the array*/
+                $this->assertCount( 67, $homeFantasyDefence );
 
                 /** clone the array */
                 $cloned_currentFantasyDefence = $homeFantasyDefence;
@@ -357,7 +358,7 @@ class IntegrationTest extends PHPUnit_Framework_TestCase
                 $process_fantasy_defence_details( BoxScore\FantasyDefence\Property::KEY_ASSISTED_TACKLES);
                 $process_fantasy_defence_details( BoxScore\FantasyDefence\Property::KEY_SACKS);
                 $process_fantasy_defence_details( BoxScore\FantasyDefence\Property::KEY_SACK_YARDS);
-                $process_fantasy_defence_details( BoxScore\FantasyDefence\Property::KEY_PASSED_DEFENDED);
+                $process_fantasy_defence_details( BoxScore\FantasyDefence\Property::KEY_PASSES_DEFENDED);
                 $process_fantasy_defence_details( BoxScore\FantasyDefence\Property::KEY_FUMBLES_FORCED);
                 $process_fantasy_defence_details( BoxScore\FantasyDefence\Property::KEY_FUMBLES_RECOVERED);
                 $process_fantasy_defence_details( BoxScore\FantasyDefence\Property::KEY_FUMBLES_RETURN_YARDS);
@@ -407,7 +408,9 @@ class IntegrationTest extends PHPUnit_Framework_TestCase
                 $process_fantasy_defence_details( BoxScore\FantasyDefence\Property::KEY_TWO_POINT_CONVERSION_RETURNS );
                 $process_fantasy_defence_details( BoxScore\FantasyDefence\Property::KEY_FANTASY_POINTS_FAN_DUEL );
                 $process_fantasy_defence_details( BoxScore\FantasyDefence\Property::KEY_FANTASY_POINTS_DRAFT_KINGS );
-
+                $process_fantasy_defence_details( BoxScore\FantasyDefence\Property::KEY_OFFENSIVE_YARDS_ALLOWED);
+                $process_fantasy_defence_details( BoxScore\FantasyDefence\Property::KEY_YAHOO_SALARY);
+                $process_fantasy_defence_details( BoxScore\FantasyDefence\Property::KEY_PLAYER_ID);
                 $this->assertEmpty( $cloned_currentFantasyDefence );
             }
 

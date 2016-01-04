@@ -78,7 +78,10 @@
       "VictivSalary": null,
       "TwoPointConversionReturns": 0,
       "FantasyPointsFanDuel": null,
-      "FantasyPointsDraftKings": null
+      "FantasyPointsDraftKings": null,
+      "OffensiveYardsAllowed": null,
+      "PlayerID": null,
+      "YahooSalary": null
     },
     "AwayKickPuntReturns": [],
     "AwayKicking": [],
